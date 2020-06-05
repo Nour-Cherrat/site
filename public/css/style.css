@@ -7,7 +7,16 @@
 /*------------------------------------------------------------------
     IMPORT FILES
 -------------------------------------------------------------------*/
+@import "animate.css";
+@import "animate.min.css";
+@import "bootstrap-touch-slider.css";
+@import "flaticon.css";
+@import "timeline.min.css";
+@import "prettyPhoto.css";
+@import "owl.carousel.css";
+@import "font-awesome.min.css";
 
+/*
 @import url(css/animate.css);
 @import url(css/animate.min.css);
 @import url(css/bootstrap-touch-slider.css);
@@ -16,6 +25,7 @@
 @import url(css/prettyPhoto.css);
 @import url(css/owl.carousel.css);
 @import url(css/font-awesome.min.css);
+*/
 
 /*------------------------------------------------------------------
     SKELETON
