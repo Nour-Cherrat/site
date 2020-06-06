@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AnnonceController extends AbstractController{
 
     /**
-     * @Route("/Annonces", name="annonces")
+     * @Route("/annonces", name="annonces")
      * @return Response
      */
 
