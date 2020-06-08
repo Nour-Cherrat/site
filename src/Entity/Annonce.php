@@ -4,12 +4,20 @@ namespace App\Entity;
 
 use App\Repository\AnnonceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
  */
 class Annonce
 {
+    const CATEGORIE = [
+        1 => 'administration',
+        2 => 'etudiant',
+        3 => 'manifestation',
+        4 => 'para-universitaire'
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -23,7 +31,7 @@ class Annonce
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
     private $categorie;
 
@@ -36,6 +44,11 @@ class Annonce
      * @ORM\Column(type="datetime")
      */
     private $date;
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -54,16 +67,26 @@ class Annonce
         return $this;
     }
 
-    public function getCategorie(): ?string
+    public function getSlug() : string
+    {
+        return (new Slugify())->slugify($this->titre);
+    }
+
+    public function getCategorie(): ?int
     {
         return $this->categorie;
     }
 
-    public function setCategorie(string $categorie): self
+    public function setCategorie(int $categorie): self
     {
         $this->categorie = $categorie;
 
         return $this;
+    }
+
+    public function getCategorieType() : string
+    {
+        return self::CATEGORIE[$this->categorie];
     }
 
     public function getDescription(): ?string

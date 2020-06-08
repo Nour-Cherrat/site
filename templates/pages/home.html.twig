@@ -107,20 +107,21 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbars-host">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{{ path('home') }}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ path('about') }}">About Us</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('about') }}">Presentation</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Course </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formation </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="course-grid-2.html">Course Grid 2 </a>
-                                <a class="dropdown-item" href="course-grid-3.html">Course Grid 3 </a>
-                                <a class="dropdown-item" href="course-grid-4.html">Course Grid 4 </a>
+                                <a class="dropdown-item" href="{{ path('TC') }}">TC </a>
+                                <a class="dropdown-item" href="course-grid-3.html">LST </a>
+                                <a class="dropdown-item" href="course-grid-4.html">M </a>
+                                <a class="dropdown-item" href="course-grid-4.html">PHD </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Annonces </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="blog.html">Blog </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %}" href="{{ path('annonces') }}">Annonces </a>
                                 <a class="dropdown-item" href="blog-single.html">Blog single </a>
                             </div>
                         </li>

@@ -19,6 +19,19 @@ class AnnonceRepository extends ServiceEntityRepository
         parent::__construct($registry, Annonce::class);
     }
 
+    /**
+     * @return Annonce[]
+     */
+    public function findLatest() : array
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
     // /**
     //  * @return Annonce[] Returns an array of Annonce objects
     //  */
