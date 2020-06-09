@@ -5,7 +5,9 @@
 {% block body %}
 
     <div class="container mt-4">
-        <h1>Gérer les annonces</h1>
+        <div class="jumbotron text-center">
+            <h1>Gérer les annonces</h1>
+        </div>
 
         {% for message in app.flashes('success') %}
             <div class="alert alert-success">

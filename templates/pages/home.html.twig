@@ -108,7 +108,13 @@
                 <div class="collapse navbar-collapse" id="navbars-host">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ path('about') }}">Presentation</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Presentation </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="{{ path('about') }}">FSTG en bref </a>
+                                <a class="dropdown-item" href="{{ path('motDoyen') }}">Mot du doyen </a>
+                            </div>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formation </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
@@ -122,14 +128,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Annonces </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="{{ path('annonces') }}">Administration </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Administration </a>
                                 <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Etudiant </a>
                                 <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Manifestation </a>
                                 <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Para-universitaire </a>
                             </div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
-                        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

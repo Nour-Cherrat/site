@@ -15,8 +15,6 @@ class AnnonceSingleController extends AbstractController
      */
     private $repository;
 
-
-
     public function __construct(AnnonceRepository $repository)
     {
         $this->repository = $repository;
