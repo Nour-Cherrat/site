@@ -21,7 +21,7 @@ class AnnonceController extends AbstractController
 
     public function index(AnnonceRepository $repository):Response
     {
-        $annonces = $repository->findLatest();
+        $annonces = $repository->findByDate();
 
         return $this->render('pages/annonces.html.twig',[
             'annonces' => $annonces

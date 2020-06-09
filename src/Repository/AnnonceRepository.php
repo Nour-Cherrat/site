@@ -22,7 +22,7 @@ class AnnonceRepository extends ServiceEntityRepository
     /**
      * @return Annonce[]
      */
-    public function findLatest() : array
+    public function findByDate() : array
     {
         return $this->createQueryBuilder('a')
             ->orderBy('a.date', 'DESC')
@@ -30,6 +30,17 @@ class AnnonceRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
+
+    public function findLatest()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.date', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
 
     // /**

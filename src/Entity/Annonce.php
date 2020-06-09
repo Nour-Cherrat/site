@@ -12,10 +12,10 @@ use Cocur\Slugify\Slugify;
 class Annonce
 {
     const CATEGORIE = [
-        1 => 'administration',
-        2 => 'etudiant',
-        3 => 'manifestation',
-        4 => 'para-universitaire'
+        1 => 'Administration',
+        2 => 'Etudiant',
+        3 => 'Manifestation',
+        4 => 'Para-universitaire'
     ];
 
     /**
