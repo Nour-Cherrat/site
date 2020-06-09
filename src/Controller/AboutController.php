@@ -24,7 +24,7 @@ class AboutController extends AbstractController{
      * @return Response
      */
 
-    public function inde():Response
+    public function index2():Response
     {
         return $this->render('pages/motDoyen.html.twig');
     }
