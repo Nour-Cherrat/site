@@ -30,7 +30,7 @@ class AdminAnnonceSingleController extends AbstractController
     }
 
     /**
-     * @Route("/admin", name="admin.annonce.index")
+     * @Route("/adminAnnonce", name="admin.annonce.index")
      * @return \Symfony\Component\HttpFoundation\Response
      */
 
@@ -41,7 +41,7 @@ class AdminAnnonceSingleController extends AbstractController
     }
 
     /**
-     * @Route("/admin/annonce/create", name="admin.annonce.new")
+     * @Route("/adminAnnonce/annonce/create", name="admin.annonce.new")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -67,7 +67,7 @@ class AdminAnnonceSingleController extends AbstractController
     }
 
     /**
-     * @Route("/admin/annonce/{id}", name="admin.annonce.edit", methods="GET|POST")
+     * @Route("/adminAnnonce/annonce/{id}", name="admin.annonce.edit", methods="GET|POST")
      * @param Annonce $annonce
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -91,7 +91,7 @@ class AdminAnnonceSingleController extends AbstractController
     }
 
     /**
-     * @Route("/admin/annonce/{id}", name="admin.annonce.delete", methods="DELETE")
+     * @Route("/adminAnnonce/annonce/{id}", name="admin.annonce.delete", methods="DELETE")
      * @param Annonce $annonce
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
