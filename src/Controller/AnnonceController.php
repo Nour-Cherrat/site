@@ -23,7 +23,7 @@ class AnnonceController extends AbstractController
     {
         $annonces = $repository->findByDate();
 
-        return $this->render('pages/annonces.html.twig',[
+        return $this->render('annonce/index.html.twig',[
             'annonces' => $annonces
         ]);
     }

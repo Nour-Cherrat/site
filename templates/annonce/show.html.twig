@@ -98,7 +98,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ path('home') }}">
-                    <img src="images/logo.png" alt="" />
+                    <img src="images/logo-fstg2.png" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -118,10 +118,11 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formation </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="{{ path('TC') }}">TC </a>
-                                <a class="dropdown-item" href="course-grid-3.html">LST </a>
-                                <a class="dropdown-item" href="course-grid-4.html">M </a>
-                                <a class="dropdown-item" href="course-grid-4.html">PHD </a>
+                                <a class="dropdown-item" href="#">TC </a>
+                                <a class="dropdown-item" href="#">LST </a>
+                                <a class="dropdown-item" href="#">Cycle </a>
+                                <a class="dropdown-item" href="#">M </a>
+                                <a class="dropdown-item" href="#">PHD </a>
                             </div>
                         </li>
                         <li class="nav-item active dropdown">
@@ -160,11 +161,11 @@
                         </div>
                         <div class="post-content">
                             <div class="post-date">
-                                <span class="day">30</span>
+                                <span class="day">{{ annonce.date |date("d") }}</span>
                                 <span class="month">Nov</span>
                             </div>
                             <div class="meta-info-blog">
-                                <span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ annonce.date |date("d/m/Y") }}</a> </span>
                                 <span><i class="fa fa-tag"></i>  <a href="#">{{ annonce.categorieType }}</a> </span>
                             </div>
                             <div class="blog-title">
