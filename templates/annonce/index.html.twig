@@ -166,7 +166,9 @@
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="blog-item">
                             <div class="image-blog">
-                                <img src="images/blog_1.jpg" alt="" class="img-fluid">
+                                {% if annonce.filename %}
+                                    <img src="{{ vich_uploader_asset(annonce, 'imageFile') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
                             </div>
                             <div class="meta-info-blog">
                                 <span><i class="fa fa-calendar"></i> <a href="#">{{ annonce.date |date("d/m/Y") }}</a> </span>
@@ -184,6 +186,7 @@
                         </div>
 
                     </div><!-- end col -->
+                    <br><br>
                 {% endfor %}
 
 

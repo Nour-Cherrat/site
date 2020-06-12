@@ -10,6 +10,10 @@
         </div>
 
         {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-6">{{ form_row(form.categorie) }}</div>
+            <div class="col-md-6">{{ form_row(form.imageFile) }}</div>
+        </div>
         {{ form_rest(form) }}
         <button class="btn btn-primary">Editer</button>
         {{ form_end(form) }}
