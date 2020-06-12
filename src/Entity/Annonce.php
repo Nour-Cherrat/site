@@ -31,7 +31,7 @@ class Annonce
 
     /**
      * @var string|null
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $filename;
 
@@ -60,11 +60,6 @@ class Annonce
      * @ORM\Column(type="datetime")
      */
     private $date;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $updated_at;
 
     public function __construct()
     {
@@ -172,18 +167,5 @@ class Annonce
         }
         return $this;
     }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt(\DateTimeInterface $updated_at): self
-    {
-        $this->updated_at = $updated_at;
-
-        return $this;
-    }
-
 
 }

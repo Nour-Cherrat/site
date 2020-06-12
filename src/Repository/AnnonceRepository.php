@@ -22,9 +22,11 @@ class AnnonceRepository extends ServiceEntityRepository
     /**
      * @return Annonce[]
      */
-    public function findByDate() : array
+    public function findByDate($categorie) : array
     {
         return $this->createQueryBuilder('a')
+            ->andWhere('a.categorie = :categorie')
+            ->setParameter('categorie', $categorie)
             ->orderBy('a.date', 'DESC')
             ->getQuery()
             ->getResult()

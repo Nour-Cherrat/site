@@ -14,14 +14,14 @@ class AnnonceController extends AbstractController
 
 
     /**
-     * @Route("/annonces", name="annonces")
+     * @Route("/annonces/{categorie}", name="annonces")
      * @param AnnonceRepository $repository
      * @return Response
      */
 
-    public function index(AnnonceRepository $repository):Response
+    public function index(AnnonceRepository $repository, $categorie):Response
     {
-        $annonces = $repository->findByDate();
+        $annonces = $repository->findByDate($categorie);
 
         return $this->render('annonce/index.html.twig',[
             'annonces' => $annonces

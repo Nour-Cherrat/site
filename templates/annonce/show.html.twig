@@ -98,7 +98,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ path('home') }}">
-                    <img src="images/logo.png" alt="" />
+                    <img src="images/logo-fstg2.png" style="width: 250px" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -128,10 +128,10 @@
                         <li class="nav-item active dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Annonces </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="{{ path('annonces') }}">Administration </a>
-                                <a class="dropdown-item" href="{{ path('annonces') }}">Etudiant </a>
-                                <a class="dropdown-item" href="{{ path('annonces') }}">Manifestation </a>
-                                <a class="dropdown-item" href="{{ path('annonces') }}">Para-universitaire </a>
+                                <a class="dropdown-item" href="{{ path('annonces', {categorie: annonce.categorie}) }}">Administration </a>
+                                <a class="dropdown-item" href="{{ path('annonces', {categorie: annonce.categorie}) }}">Etudiant </a>
+                                <a class="dropdown-item" href="{{ path('annonces', {categorie: annonce.categorie}) }}">Manifestation </a>
+                                <a class="dropdown-item" href="{{ path('annonces', {categorie: annonce.categorie}) }}">Para-universitaire </a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
