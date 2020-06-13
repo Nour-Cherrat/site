@@ -128,10 +128,10 @@
                         <li class="nav-item active dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Annonces </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="{{ path('annonces', {categorie: annonce.categorie}) }}">Administration </a>
-                                <a class="dropdown-item" href="{{ path('annonces', {categorie: annonce.categorie}) }}">Etudiant </a>
-                                <a class="dropdown-item" href="{{ path('annonces', {categorie: annonce.categorie}) }}">Manifestation </a>
-                                <a class="dropdown-item" href="{{ path('annonces', {categorie: annonce.categorie}) }}">Para-universitaire </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 1}) }}">Administration </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 2}) }}">Etudiant </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 3}) }}">Manifestation </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 4}) }}">Para-universitaire </a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
@@ -200,12 +200,10 @@
                     <div class="widget-categories">
                         <h3 class="widget-title">Categories</h3>
                         <ul>
-                            <li><a href="#">Political Science</a></li>
-                            <li><a href="#">Business Leaders Guide</a></li>
-                            <li><a href="#">Become a Product Manage</a></li>
-                            <li><a href="#">Language Education</a></li>
-                            <li><a href="#">Micro Biology</a></li>
-                            <li><a href="#">Social Media Management</a></li>
+                            <li><a href="{{ path('annonces', {categorie: 1}) }}">Administration</a></li>
+                            <li><a href="{{ path('annonces', {categorie: 2}) }}">Etudiant</a></li>
+                            <li><a href="{{ path('annonces', {categorie: 3}) }}">Manifestation</a></li>
+                            <li><a href="{{ path('annonces', {categorie: 4}) }}">Para-universitaire</a></li>
                         </ul>
                     </div>
                     <div class="widget-tags">

@@ -147,7 +147,15 @@
 
     <div class="all-title-box">
         <div class="container text-center">
-            <h1>Annonces administratives<span class="m_1">Avis aux enseignants et personnel administratif et technique.</span></h1>
+            {% if categorie == 1 %}
+                <h1>Annonces administratives<span class="m_1">Avis aux enseignants et personnel administratif et technique.</span></h1>
+            {% elseif categorie == 2 %}
+                <h1>Etudiant<span class="m_1">Avis aux etudiants.</span></h1>
+            {% elseif categorie == 3 %}
+                <h1>manifestations<span class="m_1">Avis M.</span></h1>
+            {% elseif categorie == 4 %}
+                <h1>Annonces para-universitaire<span class="m_1">Avis para univ.</span></h1>
+            {% endif %}
         </div>
     </div>
 
@@ -186,7 +194,6 @@
                                 <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: annonce.id, slug: annonce.slug}) }}"><span>Read More<span></a>
                             </div>
                         </div>
-
                     </div><!-- end col -->
                     <br><br>
                 {% endfor %}

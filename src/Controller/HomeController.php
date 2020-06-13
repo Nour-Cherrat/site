@@ -18,8 +18,6 @@ class HomeController extends AbstractController {
     {
         $annonces = $repository->findLatest();
 
-
-
         return $this->render('pages/home.html.twig',[
             'annonces' => $annonces
         ]);

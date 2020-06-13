@@ -128,10 +128,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Annonces </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Administration </a>
-                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Etudiant </a>
-                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Manifestation </a>
-                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Para-universitaire </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 1}) }}">Administration </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 2}) }}">Etudiant </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 3}) }}">Manifestation </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 4}) }}">Para-universitaire </a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>

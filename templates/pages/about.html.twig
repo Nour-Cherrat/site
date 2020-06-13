@@ -128,10 +128,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Annonces </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Administration </a>
-                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Etudiant </a>
-                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Manifestation </a>
-                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces') }}">Para-universitaire </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 1}) }}">Administration </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 2}) }}">Etudiant </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 3}) }}">Manifestation </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 4}) }}">Para-universitaire </a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
@@ -188,7 +188,7 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="inner-hmv">
                         <div class="icon-box-hmv"><i class="flaticon-history"></i></div>
-                        <h3>History</h3>
+                        <h3>Histoire</h3>
                         <div class="tr-pa">H</div>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eligendi expedita, provident cupiditate in excepturi.</p>
