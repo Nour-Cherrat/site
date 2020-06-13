@@ -188,7 +188,7 @@
                                 <h2><a href="{{ path('annonce.show', {id: annonce.id, slug: annonce.slug}) }}" title="">{{ annonce.titre }}</a></h2>
                             </div>
                             <div class="blog-desc">
-                                <p>{{ annonce.description}} </p>
+                                <p>{{ annonce.description | u.truncate(25, '…')}} </p>
                             </div>
                             <div class="blog-button">
                                 <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: annonce.id, slug: annonce.slug}) }}"><span>Read More<span></a>
