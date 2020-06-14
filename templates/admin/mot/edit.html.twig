@@ -1,0 +1,20 @@
+{% extends'base.html.twig' %}
+
+{%  block title 'Editer mot doyen' %}
+
+{% block body %}
+
+    <div class="container mt-4" style="width: 60%">
+        <div class="jumbotron text-center">
+            <h1>Editer mot doyen</h1>
+        </div>
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <button class="btn btn-primary">Editer</button>
+        {{ form_end(form) }}
+    </div>
+
+
+
+
+{% endblock %}

@@ -3,16 +3,14 @@
 namespace App\Controller\admin;
 
 use App\Entity\MotDoyen;
-use App\Entity\Presentation;
-use App\Form\AboutType;
 use App\Form\MotType;
-use App\Repository\PresentationRepository;
+use App\Repository\MotDoyenRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminHomeController extends  AbstractController
+class AdminMotController extends AbstractController
 {
     /**
      * @var ObjectManager
@@ -24,40 +22,38 @@ class AdminHomeController extends  AbstractController
         $this->em = $em;
     }
 
-
     /**
-     * @Route("/adminAbout", name="admin.home.index")
-     * @param PresentationRepository $repository
+     * @Route("/adminMotD", name="admin.mot.index")
+     * @param MotDoyenRepository $repository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(PresentationRepository $repository)
+    public function index(MotDoyenRepository $repository)
     {
-        $present = $repository->findAll();
-        
-        return $this->render('admin/home/index.html.twig', compact('present'));
+        $motD = $repository->findAll();
+
+        return $this->render('admin/mot/index.html.twig', compact('motD'));
     }
 
     /**
-     * @Route("/adminAbout/presentation/{id}", name="admin.home.about")
-     * @param Presentation $presentation
+     * @Route("/adminAbout/MotD/{id}", name="admin.mot.edit")
+     * @param MotDoyen $motDoyen
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function about(Presentation $presentation, Request $request)
+    public function edit(MotDoyen $motDoyen, Request $request)
     {
-        $form = $this->createForm(AboutType::class, $presentation);
+        $form = $this->createForm(MotType::class, $motDoyen);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
             $this->em->flush();
             $this->addFlash('success', 'Bien modifié avec succès');
-            return $this->redirectToRoute('admin.home.index');
+            return $this->redirectToRoute('admin.mot.index');
         }
 
-        return $this->render('admin/home/about.html.twig', [
-            'presentation' => $presentation,
+        return $this->render('admin/mot/edit.html.twig', [
+            'motDoyen' => $motDoyen,
             'form' => $form->createView()
         ]);
     }
-
 }

@@ -1,0 +1,43 @@
+{% extends'base.html.twig' %}
+
+{%  block title 'Gestion mot' %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <div class="jumbotron text-center">
+            <h1>Gérer mot</h1>
+        </div>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>quote</th>
+                <th>mot</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for mot in motD %}
+                <tr>
+                    <td>{{ mot.quote }}</td>
+                    <td>{{ mot.motD }}</td>
+                    <td>
+                        <a href="{{ path('admin.mot.edit', {id: mot.id}) }}" class="btn btn-secondary">Editer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+{% endblock %}
