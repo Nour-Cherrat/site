@@ -16,7 +16,7 @@ class HomeController extends AbstractController {
 
     public function index(AnnonceRepository $repository):Response
     {
-        $annonces = $repository->findLatest();
+        $annonces = $repository->findByStatus();
 
         return $this->render('pages/home.html.twig',[
             'annonces' => $annonces

@@ -22,6 +22,11 @@ class Annonce
         4 => 'Para-universitaire'
     ];
 
+    const STATUT = [
+        0 => 'out',
+        1 => 'in'
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -60,6 +65,11 @@ class Annonce
      * @ORM\Column(type="datetime")
      */
     private $date;
+
+    /**
+     * @ORM\Column(type="integer", options={"default" : 0})
+     */
+    private $statut;
 
     public function __construct()
     {
@@ -165,6 +175,18 @@ class Annonce
         if ($this->imageFile instanceof UploadedFile) {
             $this->updated_at = new \DateTime('now');
         }
+        return $this;
+    }
+
+    public function getStatut(): ?int
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(int $statut): self
+    {
+        $this->statut = $statut;
+
         return $this;
     }
 

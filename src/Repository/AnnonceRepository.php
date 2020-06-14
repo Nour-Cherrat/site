@@ -43,6 +43,31 @@ class AnnonceRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * @return Annonce[]
+     */
+    public function findByStatus() : array
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.statut = 1')
+            ->orderBy('a.date', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findTitles()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.titre')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
+
 
 
     // /**

@@ -154,14 +154,19 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <div id="home" class="first-section" style="background-image:url('images/slider-01.jpg');">
+                <div id="home" class="first-section" style="background-image:
+                {% if annonces[0].filename %}
+                        url({{ vich_uploader_asset(annonces[0], 'imageFile') | imagine_filter('large') }});
+                {% else %}
+                        url('/images/annonces/empty.png');
+                {% endif %}">
                     <div class="dtab">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 text-right">
                                     <div class="big-tagline">
-                                        <h2><strong>SmartEDU </strong> education College</h2>
-                                        <p class="lead">With Landigoo responsive landing page template, you can promote your all hosting, domain and email services. </p>
+                                        <h2><strong>{{ annonces[0].titre}} </strong> {{ annonces[0].categorieType}}</h2>
+                                        <p class="lead">{{ annonces[0].description | u.truncate(50, '…')}} </p>
                                         <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <a href="#" class="hover-btn-new"><span>Read More</span></a>
@@ -173,17 +178,22 @@
                 </div><!-- end section -->
             </div>
             <div class="carousel-item">
-                <div id="home" class="first-section" style="background-image:url('images/slider-02.jpg');">
+                <div id="home" class="first-section" style="background-image:
+                {% if annonces[1].filename %}
+                        url({{ vich_uploader_asset(annonces[1], 'imageFile') | imagine_filter('large') }});
+                {% else %}
+                        url('/images/annonces/empty.png');
+                {% endif %}">
                     <div class="dtab">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 text-left">
                                     <div class="big-tagline">
-                                        <h2 data-animation="animated zoomInRight">SmartEDU <strong>education school</strong></h2>
-                                        <p class="lead" data-animation="animated fadeInLeft">With Landigoo responsive landing page template, you can promote your all hosting, domain and email services. </p>
+                                        <h2 data-animation="animated zoomInRight">{{ annonces[1].titre}} <strong>{{ annonces[1].categorieType}}</strong></h2>
+                                        <p class="lead" data-animation="animated fadeInLeft">{{ annonces[1].description | u.truncate(50, '…')}} </p>
                                         <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="#" class="hover-btn-new"><span>Read More</span></a>
+                                        <a href="{{ path('annonce.show', {id: annonce.id, slug: annonce.slug}) }}" class="hover-btn-new"><span>Read More</span></a>
                                     </div>
                                 </div>
                             </div><!-- end row -->
@@ -192,16 +202,19 @@
                 </div><!-- end section -->
             </div>
             <div class="carousel-item">
-                <div id="home" class="first-section" style="background-image:url('images/slider-03.jpg');">
+                <div id="home" class="first-section" style="background-image:
+                {% if annonces[2].filename %}
+                        url({{ vich_uploader_asset(annonces[2], 'imageFile') | imagine_filter('large') }});
+                {% else %}
+                        url('/images/annonces/empty.png');
+                {% endif %}">
                     <div class="dtab">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <div class="big-tagline">
-                                        <h2 data-animation="animated zoomInRight"><strong>VPS Servers</strong> Company</h2>
-                                        <p class="lead" data-animation="animated fadeInLeft">1 IP included with each server
-                                            Your Choice of any OS (CentOS, Windows, Debian, Fedora)
-                                            FREE Reboots</p>
+                                        <h2 data-animation="animated zoomInRight"><strong>{{ annonces[2].titre}}</strong> {{ annonces[2].categorieType}}</h2>
+                                        <p class="lead" data-animation="animated fadeInLeft">{{ annonces[2].description | u.truncate(50, '…')}}</p>
                                         <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <a href="#" class="hover-btn-new"><span>Read More</span></a>
