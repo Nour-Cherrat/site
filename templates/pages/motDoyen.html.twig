@@ -162,10 +162,11 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="message-box">
-                        <h4>"Title"</h4>
-                        <h2>"Quote"</h2>
-                        <p>"Text"</p>
-
+                        {% if mot %}
+                        <h4></h4>
+                        <h2>"{{ mot.quote }}"</h2>
+                        <p>"{{ mot.motD }}"</p>
+                        {% endif %}
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
 

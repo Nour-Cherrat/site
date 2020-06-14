@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\MotDoyenRepository;
 use App\Repository\PresentationRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
@@ -45,11 +46,16 @@ class AboutController extends AbstractController
 
     /**
      * @Route("/motDoyen", name="motDoyen")
+     * @param MotDoyenRepository $repository
      * @return Response
      */
 
-    public function index2():Response
+    public function index2(MotDoyenRepository $repository):Response
     {
-        return $this->render('pages/motDoyen.html.twig');
+        $mot = $repository->find(1);
+
+        return $this->render('pages/motDoyen.html.twig',[
+            'mot' => $mot
+        ]);
     }
 }
