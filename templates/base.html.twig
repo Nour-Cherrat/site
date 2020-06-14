@@ -37,19 +37,20 @@
 
 
         {% endblock %}
-
+        {% if app.user %}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                {% if app.user %}
                     <ul class="navbar nav">
+                        <li class="nav-item">
+                            <a href="{{ path('admin') }}" class="nav-link" >admin home</a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ path('logout') }}" class="nav-link" >Se deconnecter</a>
                         </li>
                     </ul>
-                {% endif %}
             </div>
         </nav>
-
+        {% endif %}
 
     </head>
     <body>
@@ -127,12 +128,12 @@
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <h3>Contact Details</h3>
+                            <h3>Faculté des Sciences et Techniques</h3>
                         </div>
 
                         <ul class="footer-links">
                             <li><a href="mailto:#">info@yoursite.com</a></li>
-                            <li><a href="#">www.yoursite.com</a></li>
+                            <li><a href="#">http://www.fstg-marrakech.ac.ma/</a></li>
                             <li>B.P 549, Av.Abdelkarim Elkhattabi, Guéliz Marrakech</li>
                             <li>+212 524 43 34 04</li>
                         </ul><!-- end links -->
@@ -147,7 +148,7 @@
         <div class="container">
             <div class="footer-distributed">
                 <div class="footer-center">
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">SmartEDU</a> Design By : <a href="https://html.design/">html design</a></p>
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2020 <a href="#">FSTG</a> Design By : <a href="https://html.design/">Nour</a></p>
                 </div>
             </div>
         </div><!-- end container -->

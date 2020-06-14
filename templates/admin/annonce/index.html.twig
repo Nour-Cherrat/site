@@ -19,6 +19,8 @@
             <thead>
             <tr>
                 <th>Titre</th>
+                <th>Categorie</th>
+                <th>Description</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -26,6 +28,8 @@
             {% for annonce in annonces %}
                 <tr>
                     <td>{{ annonce.titre }}</td>
+                    <td>{{ annonce.categorieType }}</td>
+                    <td>{{ annonce.description }}</td>
                     <td>
                         <a href="{{ path('admin.annonce.edit', {id: annonce.id}) }}" class="btn btn-secondary">Editer</a>
                         <form method="post" action="{{ path('admin.annonce.delete', {id: annonce.id}) }}" style="display: inline-block" onsubmit="return confirm('Etes vous sur ?')">

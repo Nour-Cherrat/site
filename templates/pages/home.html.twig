@@ -167,9 +167,8 @@
                                     <div class="big-tagline">
                                         <h2><strong>{{ annonces[0].titre}} </strong> {{ annonces[0].categorieType}}</h2>
                                         <p class="lead">{{ annonces[0].description | u.truncate(50, '…')}} </p>
-                                        <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="#" class="hover-btn-new"><span>Read More</span></a>
+                                        <a href="{{ path('annonce.show', {id: annonces[0].id, slug: annonces[0].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
                                     </div>
                                 </div>
                             </div><!-- end row -->
@@ -191,9 +190,8 @@
                                     <div class="big-tagline">
                                         <h2 data-animation="animated zoomInRight">{{ annonces[1].titre}} <strong>{{ annonces[1].categorieType}}</strong></h2>
                                         <p class="lead" data-animation="animated fadeInLeft">{{ annonces[1].description | u.truncate(50, '…')}} </p>
-                                        <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{{ path('annonce.show', {id: annonce.id, slug: annonce.slug}) }}" class="hover-btn-new"><span>Read More</span></a>
+                                        <a href="{{ path('annonce.show', {id: annonces[1].id, slug: annonces[1].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
                                     </div>
                                 </div>
                             </div><!-- end row -->
@@ -215,9 +213,8 @@
                                     <div class="big-tagline">
                                         <h2 data-animation="animated zoomInRight"><strong>{{ annonces[2].titre}}</strong> {{ annonces[2].categorieType}}</h2>
                                         <p class="lead" data-animation="animated fadeInLeft">{{ annonces[2].description | u.truncate(50, '…')}}</p>
-                                        <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="#" class="hover-btn-new"><span>Read More</span></a>
+                                        <a href="{{ path('annonce.show', {id: annonces[2].id, slug: annonces[2].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
                                     </div>
                                 </div>
                             </div><!-- end row -->
@@ -368,183 +365,30 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-study"></i></span>
                     <p class="stat_count">12000</p>
-                    <h3>Students</h3>
+                    <h3>Etudiants</h3>
                 </div><!-- end col -->
 
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-online"></i></span>
                     <p class="stat_count">240</p>
-                    <h3>Courses</h3>
+                    <h3>Filieres</h3>
                 </div><!-- end col -->
 
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-years"></i></span>
                     <p class="stat_count">55</p>
-                    <h3>Years Completed</h3>
+                    <h3>Ans</h3>
                 </div><!-- end col -->
             </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->
 
-    <div id="plan" class="section lb">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3>Choose Your Plan</h3>
-                <p>Lorem ipsum dolor sit aet, consectetur adipisicing lit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            </div><!-- end title -->
-
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="message-box">
-                        <ul class="nav nav-pills nav-stacked" id="myTabs">
-                            <li><a class="active" href="#tab1" data-toggle="pill">Monthly Subscription</a></li>
-                            <li><a href="#tab2" data-toggle="pill">Yearly Subscription</a></li>
-                        </ul>
-                    </div>
-                </div><!-- end col -->
-            </div>
-
-            <hr class="invis">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tab-content">
-                        <div class="tab-pane active fade show" id="tab1">
-                            <div class="row text-center">
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">
-                                            <h2>$45</h2>
-                                            <h3>per month</h3>
-                                        </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                        </div>
-                                        <div class="pricing-table-sign-up">
-                                            <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">
-                                            <h2>$59</h2>
-                                            <h3>per month</h3>
-                                        </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>150</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                        </div>
-                                        <div class="pricing-table-sign-up">
-                                            <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">
-                                            <h2>$85</h2>
-                                            <h3>per month</h3>
-                                        </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                        </div>
-                                        <div class="pricing-table-sign-up">
-                                            <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- end row -->
-                        </div><!-- end pane -->
-
-                        <div class="tab-pane fade" id="tab2">
-                            <div class="row text-center">
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">
-                                            <h2>$477</h2>
-                                            <h3>Year</h3>
-                                        </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                        </div>
-                                        <div class="pricing-table-sign-up">
-                                            <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">
-                                            <h2>$485</h2>
-                                            <h3>Year</h3>
-                                        </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>150</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                        </div>
-                                        <div class="pricing-table-sign-up">
-                                            <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">
-                                            <h2>$500</h2>
-                                            <h3>Year</h3>
-                                        </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                        </div>
-                                        <div class="pricing-table-sign-up">
-                                            <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- end row -->
-                        </div><!-- end pane -->
-                    </div><!-- end content -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
 
     <div id="testimonials" class="parallax section db parallax-off" style="background-image:url('images/parallax_04.jpg');">
         <div class="container">
             <div class="section-title text-center">
-                <h3>Testimonials</h3>
-                <p>Lorem ipsum dolor sit aet, consectetur adipisicing lit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <h3>Alumnis</h3>
+                <p>Words of wisdom </p>
             </div><!-- end title -->
 
             <div class="row">

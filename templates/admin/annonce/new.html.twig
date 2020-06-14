@@ -4,12 +4,23 @@
 
 {% block body %}
 
-    <div class="container mt-4">
+    <div class="container mt-4" style="width: 60%">
         <div class="jumbotron text-center">
             <h1>Creer une annonce</h1>
         </div>
 
         {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.titre) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">{{ form_row(form.categorie) }}</div>
+            <div class="col-md-3">{{ form_row(form.imageFile) }}</div>
+            <div class="col-md-3">{{ form_row(form.statut) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.description) }}</div>
+        </div>
         {{ form_rest(form) }}
         <button class="btn btn-primary">Creer</button>
         {{ form_end(form) }}
