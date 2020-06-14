@@ -71,6 +71,11 @@ class Annonce
      */
     private $statut;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
+
     public function __construct()
     {
         $this->date = new \DateTime();
@@ -186,6 +191,18 @@ class Annonce
     public function setStatut(int $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }
