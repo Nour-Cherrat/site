@@ -23,8 +23,8 @@ class AnnonceType extends AbstractType
             ])
             ->add('statut', ChoiceType::class, [
                 'choices'  => [
-                    'No' => 0,
-                    'Yes' => 1,
+                    'Ne pas ajouter au slider' => 0,
+                    'Ajouter au slider' => 1,
                 ],
             ])
             ->add('description')
@@ -35,6 +35,7 @@ class AnnonceType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Annonce::class,
+            'translation_domain' => 'forms'
         ]);
     }
 

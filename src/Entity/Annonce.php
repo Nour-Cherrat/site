@@ -23,8 +23,8 @@ class Annonce
     ];
 
     const STATUT = [
-        0 => 'out',
-        1 => 'in'
+        0 => 'non',
+        1 => 'oui'
     ];
 
     /**

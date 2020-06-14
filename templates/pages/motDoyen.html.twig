@@ -145,7 +145,7 @@
     </header>
     <!-- End header -->
 
-    <div class="all-title-box">
+    <div class="all-title-box" style="background-image: url('images/logo/banner.jpg')">
         <div class="container text-center">
             <h1>Mot du doyen<span class="m_1"></span></h1>
         </div>
@@ -163,7 +163,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="message-box">
                         {% if mot %}
-                        <h4></h4>
+                        <h4>{{ mot.nom }}</h4>
                         <h2>"{{ mot.quote }}"</h2>
                         <p>"{{ mot.motD }}"</p>
                         {% endif %}

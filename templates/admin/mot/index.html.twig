@@ -18,14 +18,16 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>quote</th>
-                <th>mot</th>
+                <th>Nom</th>
+                <th>Quote</th>
+                <th>Mot</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
             {% for mot in motD %}
                 <tr>
+                    <td>{{ mot.nom }}</td>
                     <td>{{ mot.quote }}</td>
                     <td>{{ mot.motD }}</td>
                     <td>

@@ -15,6 +15,7 @@ class MotType extends AbstractType
         $builder
             ->add('quote')
             ->add('motD')
+            ->add('nom')
             ->add('imageFile', FileType::class, [
                 'required' => false
             ])

@@ -145,7 +145,7 @@
     </header>
     <!-- End header -->
 
-    <div class="all-title-box">
+    <div class="all-title-box" style="background-image: url('images/logo/banner.jpg')">
         <div class="container text-center">
             <h1>Blog Single<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
         </div>
@@ -166,7 +166,21 @@
                         <div class="post-content">
                             <div class="post-date">
                                 <span class="day">{{ annonce.date |date("d") }}</span>
-                                <span class="month">{{ annonce.date |date("m") }}</span>
+                                <span class="month">
+                                    {% if  annonce.date |date("m")  == 01 %} JAN
+                                    {% elseif annonce.date |date("m")  == 02 %} FEB
+                                    {% elseif annonce.date |date("m")  == 03 %} MAR
+                                    {% elseif annonce.date |date("m")  == 04 %} APR
+                                    {% elseif annonce.date |date("m")  == 05 %} MAI
+                                    {% elseif annonce.date |date("m")  == 06 %} JUN
+                                    {% elseif annonce.date |date("m")  == 07 %} JUL
+                                    {% elseif annonce.date |date("m")  == 08 %} AUG
+                                    {% elseif annonce.date |date("m")  == 09 %} SEP
+                                    {% elseif annonce.date |date("m")  == 10 %} OCT
+                                    {% elseif annonce.date |date("m")  == 11 %} NOV
+                                    {% elseif annonce.date |date("m")  == 12 %} DEC
+                                    {% endif %}
+                                </span>
                             </div>
                             <div class="meta-info-blog">
                                 <span><i class="fa fa-calendar"></i> <a href="#">{{ annonce.date |date("d/m/Y") }}</a> </span>

@@ -48,6 +48,11 @@ class MotDoyen
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,6 +129,18 @@ class MotDoyen
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }
