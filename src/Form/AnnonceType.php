@@ -21,6 +21,12 @@ class AnnonceType extends AbstractType
             ->add('imageFile', FileType::class, [
                 'required' => false
             ])
+            ->add('statut', ChoiceType::class, [
+                'choices'  => [
+                    'No' => 0,
+                    'Yes' => 1,
+                ],
+            ])
             ->add('description')
         ;
     }
