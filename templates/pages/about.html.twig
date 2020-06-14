@@ -156,7 +156,9 @@
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
                     <h3>About</h3>
-                    <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
+                    {% if present %}
+                    <p class="lead">{{ present.about }}</p>
+                    {% endif %}
                 </div>
             </div><!-- end title -->
 
@@ -172,8 +174,9 @@
                         <div class="icon-box-hmv"><i class="flaticon-achievement"></i></div>
                         <h3>Mission</h3>
                         <div class="tr-pa">M</div>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eligendi expedita, provident cupiditate in excepturi.</p>
+                        {% if present %}
+                        <p>{{ present.mission }}</p>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">
@@ -181,8 +184,9 @@
                         <div class="icon-box-hmv"><i class="flaticon-eye"></i></div>
                         <h3>Vision</h3>
                         <div class="tr-pa">V</div>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eligendi expedita, provident cupiditate in excepturi.</p>
+                        {% if present %}
+                            <p>{{ present.vision }}</p>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">
@@ -190,8 +194,9 @@
                         <div class="icon-box-hmv"><i class="flaticon-history"></i></div>
                         <h3>Histoire</h3>
                         <div class="tr-pa">H</div>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eligendi expedita, provident cupiditate in excepturi.</p>
+                        {% if present %}
+                            <p>{{ present.histoire }}</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -19,6 +19,21 @@ class PresentationRepository extends ServiceEntityRepository
         parent::__construct($registry, Presentation::class);
     }
 
+    /**
+     * @return Presentation[]
+     */
+    public function findLast() : array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
+
     // /**
     //  * @return Presentation[] Returns an array of Presentation objects
     //  */
