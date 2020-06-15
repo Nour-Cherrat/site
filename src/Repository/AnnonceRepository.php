@@ -33,16 +33,6 @@ class AnnonceRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findLatest()
-    {
-        return $this->createQueryBuilder('a')
-            ->orderBy('a.date', 'DESC')
-            ->setMaxResults(3)
-            ->getQuery()
-            ->getResult()
-            ;
-    }
-
     /**
      * @return Annonce[]
      */
@@ -57,14 +47,20 @@ class AnnonceRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findTitles()
+    /**
+     * @return Annonce[]
+     */
+    public function findLatest() : array
     {
         return $this->createQueryBuilder('a')
-            ->select('a.titre')
+            ->orderBy('a.date', 'DESC')
+            ->setMaxResults(2)
             ->getQuery()
             ->getResult()
             ;
     }
+
+
 
 
 

@@ -190,11 +190,12 @@
                                 <h2><a href="#" title="">{{ annonce.titre }}</a></h2>
                             </div>
                             <div class="blog-desc">
-                                <p>{{ annonce.description}}</p>
                                 {% if annonce.pdfname %}
-                                    <a href="{{ vich_uploader_asset(annonce, 'pdfFile') }}">{{ annonce.pdfname}}</a>
+                                    <a href="{{ vich_uploader_asset(annonce, 'pdfFile') }}">{{ annonce.pdfname}}</a> <br>
                                 {% endif %}
+                                <br>
                                 <blockquote class="default">
+                                    <p>{{ annonce.description}}</p>
                                 </blockquote>
                             </div>
                         </div>
