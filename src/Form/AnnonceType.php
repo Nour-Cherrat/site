@@ -19,6 +19,7 @@ class AnnonceType extends AbstractType
                 'choices' => $this->getChoices()
             ])
             ->add('imageFile', FileType::class, [
+                'label' => 'Image',
                 'required' => false
             ])
             ->add('statut', ChoiceType::class, [
@@ -26,6 +27,10 @@ class AnnonceType extends AbstractType
                     'Ne pas ajouter au slider' => 0,
                     'Ajouter au slider' => 1,
                 ],
+            ])
+            ->add('pdfFile', FileType::class, [
+                'label' => 'Fichier',
+                'required' => false
             ])
             ->add('description')
         ;

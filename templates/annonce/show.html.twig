@@ -191,6 +191,9 @@
                             </div>
                             <div class="blog-desc">
                                 <p>{{ annonce.description}}</p>
+                                {% if annonce.pdfname %}
+                                    <a href="{{ vich_uploader_asset(annonce, 'pdfFile') }}">{{ annonce.pdfname}}</a>
+                                {% endif %}
                                 <blockquote class="default">
                                 </blockquote>
                             </div>

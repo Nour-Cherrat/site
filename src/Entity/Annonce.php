@@ -47,6 +47,18 @@ class Annonce
     private $imageFile;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pdfname;
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="uploads", fileNameProperty="pdfname")
+     */
+    private $pdfFile;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $titre;
@@ -204,6 +216,39 @@ class Annonce
     {
         $this->updated_at = $updated_at;
 
+        return $this;
+    }
+
+    public function getPdfname(): ?string
+    {
+        return $this->pdfname;
+    }
+
+    public function setPdfname(?string $pdfname): self
+    {
+        $this->pdfname = $pdfname;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getPdfFile(): ?File
+    {
+        return $this->pdfFile;
+    }
+
+    /**
+     * @param File|null $pdfFile
+     * @return Annonce
+     */
+    public function setPdfFile(?File $pdfFile): Annonce
+    {
+        $this->pdfFile = $pdfFile;
+        if ($this->pdfFile instanceof UploadedFile) {
+            $this->updated_at = new \DateTime('now');
+        }
         return $this;
     }
 
