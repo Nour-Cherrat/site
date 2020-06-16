@@ -98,7 +98,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ path('home') }}">
-                    <img src="images/logo.png" alt="" />
+                    <img src="images/logo/logo-fstg.png" style="width: 200px" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -133,7 +133,7 @@
                                 <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 3}) }}">Manifestation </a>
                                 <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 4}) }}">Para-universitaire </a>
                             </div>
-                        </li>>
+                        </li>
                         <li class="nav-item active"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -145,43 +145,47 @@
     </header>
     <!-- End header -->
 
-    <div class="all-title-box">
+    <div class="all-title-box" style="background-image: url('images/logo/banner.jpg')">
         <div class="container text-center">
-            <h1>Contact<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+            <h1>Contactez nous<span class="m_1"></span></h1>
         </div>
     </div>
 
     <div id="contact" class="section wb">
         <div class="container">
             <div class="section-title text-center">
-                <h3>Need Help? Sure we are Online!</h3>
-                <p class="lead">Let us give you more details about the special offer website you want us. Please fill out the form below. <br>We have million of website owners who happy to work with us!</p>
+                <h3>Need Help?!</h3>
+                <p class="lead">Please fill out the form below. <br></p>
             </div><!-- end title -->
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
 
             <div class="row">
                 <div class="col-xl-6 col-md-12 col-sm-12">
                     <div class="contact_form">
                         <div id="message"></div>
-                        <form id="contactform" class="" action="contact.php" name="contactform" method="post">
+                        <form id="contactform" class="" name="contactform">
                             <div class="row row-fluid">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
+                                {{ form_start(form) }}
+                                <div class="row">
+                                    <div class="col-md-6" style="color: whitesmoke; font-size: 18px">{{ form_row(form.nom) }}</div>
+                                    <div class="col-md-6" style="color: whitesmoke; font-size: 18px">{{ form_row(form.prenom) }}</div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name">
+                                <div class="row">
+                                    <div class="col-md-6" style="color: whitesmoke; font-size: 18px">{{ form_row(form.email) }}</div>
+                                    <div class="col-md-3" style="color: whitesmoke; font-size: 18px">{{ form_row(form.numero) }}</div>
+                                    <div class="col-md-3" style="color: whitesmoke; font-size: 18px">{{ form_row(form.code) }}</div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Give us more details.."></textarea>
-                                </div>
+                                <div class="col-md-12" style="color: whitesmoke; font-size: 18px">{{ form_row(form.message) }}</div>
+                                {{ form_rest(form) }}
                                 <div class="text-center pd">
-                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Get a Quote</button>
+                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Envoyer</button>
                                 </div>
+                                {{ form_end(form) }}
                             </div>
                         </form>
                     </div>

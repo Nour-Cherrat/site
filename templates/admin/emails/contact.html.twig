@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title>Hello world</title>
+        <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto:300,500"></mj-font>
+        <mj-attributes>
+            <mj-all font-family="Roboto, Helvetica, sans-serif"></mj-all>
+            <mj-text font-weight="300" font-size="16px" color="#616161" line-height="24px"></mj-text>
+            <mj-section padding="0px"></mj-section>
+        </mj-attributes>
+</head>
+    <body>
+        <mj-section padding="20px 0">
+            <mj-column width="60%">
+                <mj-text font-size="10px">Your bimonthly intake of AI, machine learning and bots is here!</mj-text>
+            </mj-column>
+            <mj-column width="40%">
+                <mj-text align="right">[[PERMALINK]]</mj-text>
+            </mj-column>
+        </mj-section>
+        <mj-section>
+            <mj-column width="100%">
+                <mj-image href="https://recast.ai?ref=newsletter" src="https://cdn.recast.ai/newsletter/city-01.png"></mj-image>
+            </mj-column>
+        </mj-section>
+        <mj-section>
+            <mj-column width="100%">
+                <mj-text align="center">Your bimonthly intake of AI, machine learning and bots is here!</mj-text>
+            </mj-column>
+        </mj-section>
+        <mj-section>
+            <mj-column width="45%">
+                <mj-text align="center" font-weight="500" padding="0px" font-size="18px">ISSUE #18 - DECEMBER</mj-text>
+                <mj-divider border-width="2px" border-color="#616161"></mj-divider>
+                <mj-divider border-width="2px" border-color="#616161" width="45%"></mj-divider>
+            </mj-column>
+        </mj-section>
+        <mj-section padding-top="30px">
+            <mj-column width="100%">
+                <mj-text>
+                    <table>
+                        <tr>
+                            <td>Nom</td>
+                            <td>{{ contact.nom }}</td>
+                        </tr>
+                        <tr>
+                            <td>Prenom</td>
+                            <td>{{ contact.prenom }}</td>
+                        </tr>
+                        <tr>
+                            <td>Telephone</td>
+                            <td>{{ contact.numero }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{ contact.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Code</td>
+                            <td>{{ contact.code }}</td>
+                        </tr>
+                        <tr>
+                            <td>Message</td>
+                            <td>{{ contact.message }}</td>
+                        </tr>
+                    </table>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+    </body>
+</mjml>
+</html>
