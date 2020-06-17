@@ -50,11 +50,13 @@ class AnnonceRepository extends ServiceEntityRepository
     /**
      * @return Annonce[]
      */
-    public function findLatest() : array
+    public function findLast($categorie) : array
     {
         return $this->createQueryBuilder('a')
+            ->andWhere('a.categorie = :categorie')
+            ->setParameter('categorie', $categorie)
             ->orderBy('a.date', 'DESC')
-            ->setMaxResults(2)
+            ->setMaxResults(3)
             ->getQuery()
             ->getResult()
             ;

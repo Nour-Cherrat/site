@@ -16,6 +16,7 @@ class AnnonceController extends AbstractController
     /**
      * @Route("/annonces/{categorie}", name="annonces")
      * @param AnnonceRepository $repository
+     * @param $categorie
      * @return Response
      */
 
