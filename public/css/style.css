@@ -7,6 +7,16 @@
 /*------------------------------------------------------------------
     IMPORT FILES
 -------------------------------------------------------------------*/
+@import url(public/css/animate.css);
+@import url(public/css/animate.min.css);
+@import url(public/css/bootstrap-touch-slider.css);
+@import url(public/css/flaticon.css);
+@import url(public/css/timeline.min.css);
+@import url(public/css/prettyPhoto.css);
+@import url(public/css/owl.carousel.css);
+@import url(public/css/font-awesome.min.css);
+
+/*
 @import "animate.css";
 @import "animate.min.css";
 @import "bootstrap-touch-slider.css";
@@ -15,6 +25,7 @@
 @import "prettyPhoto.css";
 @import "owl.carousel.css";
 @import "font-awesome.min.css";
+ */
 
 /*
 @import url(css/animate.css);

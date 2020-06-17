@@ -6,35 +6,6 @@
 
     <body class="host_version">
 
-    <!-- Modal -->
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header tit-up">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Informations de contact</h4>
-                </div>
-                <div class="modal-body customer-box">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs">
-                        <li><a class="active" href="#Login" data-toggle="tab">Contact</a></li>
-                        <li><a href="#Registration" data-toggle="tab">Map</a></li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="Login" style="text-align: center">
-                            <p>B.P 549, Av.Abdelkarim Elkhattabi, Guéliz Marrakech</p>
-                            <p>+212 524 43 34 04</p>
-                        </div>
-                        <div class="tab-pane" id="Registration">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.609013922801!2d-8.022468985513619!3d31.644553948167047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee9eb5090999%3A0x2dca05e37a64f83b!2sFacult%C3%A9%20des%20Sciences%20et%20Techniques!5e0!3m2!1sfr!2sma!4v1592311195955!5m2!1sfr!2sma" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- LOADER -->
     <div id="preloader">
         <div class="loader-container">
@@ -88,16 +59,13 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="hover-btn-new log orange" href="#" data-toggle="modal" data-target="#login"><span>Info</span></a></li>
-                    </ul>
                 </div>
             </div>
         </nav>
     </header>
     <!-- End header -->
 
-    <div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" >
+    <div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" style="height: 60%; margin-left: 20%; margin-right: 20%;">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
@@ -197,49 +165,141 @@
                 </div>
             </div><!-- end title -->
 
+
+            <div class="message-box">
+                <h4>Administration</h4>
+            </div><!-- end messagebox -->
+
             <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="message-box">
-                        <h4>{{ last[0].categorieType}}</h4>
-                        <h2>{{ last[0].titre}}</h2>
-                        <p>{{ last[0].description | u.truncate(50, '…')}}</p>
-
-                        <a href="{{ path('annonce.show', {id: last[0].id, slug: last[0].slug}) }}" class="hover-btn-new orange"><span>Learn More</span></a>
-                    </div><!-- end messagebox -->
-                </div><!-- end col -->
-
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="post-media wow fadeIn">
-                        {% if last[0].filename %}
-                            <img src="{{ vich_uploader_asset(last[0], 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                        {% else %}
-                            <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                        {% endif %}
-                    </div><!-- end media -->
-                </div><!-- end col -->
+                {% for l in last1 %}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-item">
+                            <div class="image-blog">
+                                {% if l.filename %}
+                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
+                            </div>
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
+                            </div>
+                            <div class="blog-desc">
+                                <p>{{ l.description | u.truncate(25, '…')}} </p>
+                            </div>
+                            <div class="blog-button">
+                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
             </div>
+
+
+            <div class="message-box">
+                <h4>Etudiant</h4>
+            </div><!-- end messagebox -->
+
             <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="post-media wow fadeIn">
-                        {% if last[1].filename %}
-                            <img src="{{ vich_uploader_asset(last[0], 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                        {% else %}
-                            <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                        {% endif %}
-                    </div><!-- end media -->
-                </div><!-- end col -->
+                {% for l in last2 %}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-item">
+                            <div class="image-blog">
+                                {% if l.filename %}
+                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
+                            </div>
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
+                            </div>
+                            <div class="blog-desc">
+                                <p>{{ l.description | u.truncate(25, '…')}} </p>
+                            </div>
+                            <div class="blog-button">
+                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
+            </div>
 
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="message-box">
-                        <h4>{{ last[1].categorieType}}</h4>
-                        <h2>{{ last[1].titre}}</h2>
-                        <p>{{ last[1].description | u.truncate(50, '…')}}</p>
 
-                        <a href="{{ path('annonce.show', {id: last[1].id, slug: last[1].slug}) }}" class="hover-btn-new orange"><span>Learn More</span></a>
-                    </div><!-- end messagebox -->
-                </div><!-- end col -->
+            <div class="message-box">
+                <h4>Manifestation</h4>
+            </div><!-- end messagebox -->
 
-            </div><!-- end row -->
+            <div class="row align-items-center">
+                {% for l in last3 %}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-item">
+                            <div class="image-blog">
+                                {% if l.filename %}
+                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
+                            </div>
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
+                            </div>
+                            <div class="blog-desc">
+                                <p>{{ l.description | u.truncate(25, '…')}} </p>
+                            </div>
+                            <div class="blog-button">
+                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
+            </div>
+
+
+            <div class="message-box">
+                <h4>Para-universitaire</h4>
+            </div><!-- end messagebox -->
+
+            <div class="row align-items-center">
+                {% for l in last4 %}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-item">
+                            <div class="image-blog">
+                                {% if l.filename %}
+                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
+                            </div>
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
+                            </div>
+                            <div class="blog-desc">
+                                <p>{{ l.description | u.truncate(25, '…')}} </p>
+                            </div>
+                            <div class="blog-button">
+                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
+            </div>
         </div><!-- end container -->
     </div><!-- end section -->
 
@@ -341,96 +401,6 @@
     </div><!-- end section -->
 
 
-    <div id="testimonials" class="parallax section db parallax-off" style="background-image:url('images/parallax_04.jpg');">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3>Alumnis</h3>
-                <p>Words of wisdom </p>
-            </div><!-- end title -->
-
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="testi-carousel owl-carousel owl-theme">
-                        <div class="testimonial clearfix">
-                            <div class="testi-meta">
-                                <img src="images/testi_01.png" alt="" class="img-fluid">
-                                <h4>James Fernando </h4>
-                            </div>
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
-                                <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
-
-                        <div class="testimonial clearfix">
-                            <div class="testi-meta">
-                                <img src="images/testi_02.png" alt="" class="img-fluid">
-                                <h4>Jacques Philips </h4>
-                            </div>
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
-                                <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you completed.</p>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
-
-                        <div class="testimonial clearfix">
-                            <div class="testi-meta">
-                                <img src="images/testi_03.png" alt="" class="img-fluid ">
-                                <h4>Venanda Mercy </h4>
-                            </div>
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
-                                <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
-                        <div class="testimonial clearfix">
-                            <div class="testi-meta">
-                                <img src="images/testi_01.png" alt="" class="img-fluid">
-                                <h4>James Fernando </h4>
-                            </div>
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
-                                <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
-
-                        <div class="testimonial clearfix">
-                            <div class="testi-meta">
-                                <img src="images/testi_02.png" alt="" class="img-fluid">
-                                <h4>Jacques Philips </h4>
-                            </div>
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
-                                <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you completed.</p>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
-
-                        <div class="testimonial clearfix">
-                            <div class="testi-meta">
-                                <img src="images/testi_03.png" alt="" class="img-fluid">
-                                <h4>Venanda Mercy </h4>
-                            </div>
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
-                                <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div><!-- end testimonial -->
-                    </div><!-- end carousel -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
 
 
 
