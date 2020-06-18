@@ -314,31 +314,36 @@
                     url({{ vich_uploader_asset(annonces[0], 'imageFile') | imagine_filter('thumb') }});
             {% else %}
                     url('/images/annonces/empty.png');
-                {% endif %}">
-                <div class="timestamp">
+                {% endif %}; border-radius: 15px 50px; border-bottom: 2px solid #86D6FF; border-right: 2px solid #86D6FF; filter: contrast(90%)">
+                <div class="timestamp" style="font-size: 18px;">
                     3rd March 2015<br> 7:00 PM
                 </div>
-                <div class="item-title">Start from Shire</div>
-                <div class="item-detail">Don't forgeg jfgggggg gggggggg gggggg gggggg ggggggg ggggggg jfjgkjd fksdjhfk ldfhdhfkjdft the ring</div>
+                <div class="item-title" style="font-size: 18px; border-bottom: 1px solid #86D6FF">Start from Shire</div> <br>
+                <div class="item-detail" style="font-size: 16px; color: black;">Don't forgeg jfgggggg gggggggg gggggg gggggg ggggggg ggggggg jfjgkjd fksdjhfk ldfhdhfkjdft the ring</div>
             </li>
             <li class="tl-item" ng-repeat="item in retailer_history" style="background-image:
             {% if annonces[2].filename %}
                     url({{ vich_uploader_asset(annonces[2], 'imageFile') | imagine_filter('thumb') }});
             {% else %}
                     url('/images/annonces/empty.png');
-                {% endif %}">
-                <div class="timestamp">
+                {% endif %}; border-radius: 15px 50px; border-bottom: 2px solid #86D6FF; border-right: 2px solid #86D6FF; filter: contrast(90%)">
+                <div class="timestamp" style="font-size: 18px;">
                     19th March 2015<br> 3:00 PM
                 </div>
-                <div class="item-title">Kill some Orcs</div>
-                <div class="item-detail">Don't enter the dfdnl kdsjfgkh sdmkghmk sdjhgmkhsdkg jhskjdhgkhd gkhkd ghkmjdfg kqdfmkghmkdfnghkmjdfgcaves!!</div>
+                <div class="item-title" style="font-size: 18px; border-bottom: 1px solid #86D6FF">Kill some Orcs</div> <br>
+                <div class="item-detail" style="font-size: 16px; color: black;">Don't enter the dfdnl kdsjfgkh sdmkghmk sdjhgmkhsdkg jhskjdhgkhd gkhkd ghkmjdfg kqdfmkghmkdfnghkmjdfgcaves!!</div>
             </li>
-            <li class="tl-item" ng-repeat="item in retailer_history">
-                <div class="timestamp">
+            <li class="tl-item" ng-repeat="item in retailer_history" style="background-image:
+            {% if annonces[1].filename %}
+                    url({{ vich_uploader_asset(annonces[1], 'imageFile') | imagine_filter('thumb') }});
+            {% else %}
+                    url('/images/annonces/empty.png');
+                {% endif %}; border-radius: 15px 50px; border-bottom: 2px solid #86D6FF; border-right: 2px solid #86D6FF; filter: contrast(90%)">
+                <div class="timestamp" style="font-size: 18px;">
                     1st June 2015<br> 7:00 PM
                 </div>
-                <div class="item-title">Throw that goddamn ring in the lava</div>
-                <div class="item-detail">Also, thrbgkj ndfbknd mlfkngkdf glkdflk gldkf,gk,f glkdjg lks,df lksjdf sdfsdfg gdfgfdhfdhdfhhfow that Gollum too</div>
+                <div class="item-title" style="font-size: 18px; border-bottom: 1px solid #86D6FF">Throw that goddamn ring in the lava</div> <br>
+                <div class="item-detail" style="font-size: 16px; color: black;">Also, thrbgkj ndfbknd mlfkngkdf glkdflk gldkf,gk,f glkdjg lks,df lksjdf sdfsdfg gdfgfdhfdhdfhhfow that Gollum too</div>
             </li>
 
         </ul>
@@ -370,10 +375,5 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->
-
-
-
-
-
 
 {% endblock %}
