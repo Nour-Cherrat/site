@@ -16,6 +16,10 @@
 @import url(public/css/owl.carousel.css);
 @import url(public/css/font-awesome.min.css);
 
+@import url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800');
+
+
+
 /*
 @import "animate.css";
 @import "animate.min.css";
@@ -3890,7 +3894,6 @@ a.link-style3 {
 .course-meta-bot ul li:hover{
 	color: #eea412;
 }
-
 
 
 

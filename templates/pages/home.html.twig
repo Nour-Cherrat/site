@@ -303,78 +303,49 @@
         </div><!-- end container -->
     </div><!-- end section -->
 
-    <section class="section lb page-section">
-        <div class="container">
-            <div class="section-title row text-center">
-                <div class="col-md-8 offset-md-2">
-                    <h3>Our history</h3>
-                    <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
+    <!-- old timeline -->
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:200,400,600' rel='stylesheet' type='text/css'>
+
+    <div class="history-tl-container">
+        <ul class="tl">
+            <li class="tl-item" ng-repeat="item in retailer_history" style="background-image:
+            {% if annonces[0].filename %}
+                    url({{ vich_uploader_asset(annonces[0], 'imageFile') | imagine_filter('thumb') }});
+            {% else %}
+                    url('/images/annonces/empty.png');
+                {% endif %}">
+                <div class="timestamp">
+                    3rd March 2015<br> 7:00 PM
                 </div>
-            </div><!-- end title -->
-            <div class="timeline">
-                <div class="timeline__wrap">
-                    <div class="timeline__items">
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg-01">
-                                <h2>2018</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg-02">
-                                <h2>2015</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg-03">
-                                <h2>2014</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg-04">
-                                <h2>2012</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg-01">
-                                <h2>2010</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg-02">
-                                <h2>2007</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg-03">
-                                <h2>2004</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg-04">
-                                <h2>2002</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="item-title">Start from Shire</div>
+                <div class="item-detail">Don't forgeg jfgggggg gggggggg gggggg gggggg ggggggg ggggggg jfjgkjd fksdjhfk ldfhdhfkjdft the ring</div>
+            </li>
+            <li class="tl-item" ng-repeat="item in retailer_history" style="background-image:
+            {% if annonces[2].filename %}
+                    url({{ vich_uploader_asset(annonces[2], 'imageFile') | imagine_filter('thumb') }});
+            {% else %}
+                    url('/images/annonces/empty.png');
+                {% endif %}">
+                <div class="timestamp">
+                    19th March 2015<br> 3:00 PM
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="item-title">Kill some Orcs</div>
+                <div class="item-detail">Don't enter the dfdnl kdsjfgkh sdmkghmk sdjhgmkhsdkg jhskjdhgkhd gkhkd ghkmjdfg kqdfmkghmkdfnghkmjdfgcaves!!</div>
+            </li>
+            <li class="tl-item" ng-repeat="item in retailer_history">
+                <div class="timestamp">
+                    1st June 2015<br> 7:00 PM
+                </div>
+                <div class="item-title">Throw that goddamn ring in the lava</div>
+                <div class="item-detail">Also, thrbgkj ndfbknd mlfkngkdf glkdflk gldkf,gk,f glkdjg lks,df lksjdf sdfsdfg gdfgfdhfdhdfhhfow that Gollum too</div>
+            </li>
+
+        </ul>
+
+    </div>
+
+
 
     <div class="section cl">
         <div class="container">
