@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AlumniRepository;
 use App\Repository\MotDoyenRepository;
 use App\Repository\PresentationRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -32,15 +33,18 @@ class AboutController extends AbstractController
     /**
      * @Route("/about", name="about")
      * @param PresentationRepository $repository
+     * @param AlumniRepository $alumniRepository
      * @return Response
      */
 
-    public function index(PresentationRepository $repository):Response
+    public function index(PresentationRepository $repository, AlumniRepository $alumniRepository):Response
     {
         $present = $repository->find(1);
+        $alumnis = $alumniRepository->findLast();
 
         return $this->render('pages/about.html.twig',[
-            'present' => $present
+            'present' => $present,
+            'alumnis' => $alumnis
         ]);
     }
 

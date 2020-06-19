@@ -19,7 +19,10 @@ class FiliereRepository extends ServiceEntityRepository
         parent::__construct($registry, Filiere::class);
     }
 
-    public function findByCategory($categorie)
+    /**
+     * @return Filiere[]
+     */
+    public function findByCategory($categorie) : array
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.categorie = :categorie')

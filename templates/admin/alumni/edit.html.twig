@@ -1,0 +1,40 @@
+{% extends'base.html.twig' %}
+
+{%  block title 'Editer les alumnis' %}
+
+{% block body %}
+
+    <div class="sidenav" id="mySidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >×</a>
+        <a href="{{ path('admin.annonce.index') }}">Annonce</a> <br>
+        <a href="{{ path('admin.home.index') }}">Presentation de la FSTG</a> <br>
+        <a href="{{ path('admin.mot.index') }}">Mot du Doyen</a> <br>
+        <a href="{{ path('admin.alumni.index') }}">Alumni</a> <br>
+        <a href="{{ path('admin.filiere.index') }}">Formation</a> <br>
+    </div>
+
+    <div class="container mt-4" style="width: 60%">
+        <div class="jumbotron text-center">
+            <h1>Editer les temoignages</h1>
+        </div>
+
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <button class="btn btn-primary">Editer</button>
+        {{ form_end(form) }}
+        <hr class="invis">
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "380px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
+
+
+
+{% endblock %}

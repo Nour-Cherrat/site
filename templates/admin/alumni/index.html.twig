@@ -1,0 +1,76 @@
+{% extends'base.html.twig' %}
+
+{%  block title 'Gestion des annonces' %}
+
+{% block body %}
+
+    <div class="sidenav" id="mySidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >×</a>
+        <a href="{{ path('admin.annonce.index') }}">Annonce</a> <br>
+        <a href="{{ path('admin.home.index') }}">Presentation de la FSTG</a> <br>
+        <a href="{{ path('admin.mot.index') }}">Mot du Doyen</a> <br>
+        <a href="{{ path('admin.alumni.index') }}">Alumni</a> <br>
+        <a href="{{ path('admin.filiere.index') }}">Formation</a> <br>
+    </div>
+
+    <div class="container mt-4">
+        <div class="jumbotron text-center">
+            <h1>Gérer les alumnis</h1>
+        </div>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Filiere</th>
+                <th>Quote</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for alumni in alumnis %}
+                <tr>
+                    <td>{{ alumni.nom }}</td>
+                    <td>{{ alumni.filiere }}</td>
+                    <td>{{ alumni.quote | u.truncate(25, '…')}}</td>
+                    <td>
+                        <a href="{{ path('admin.alumni.edit', {id: alumni.id}) }}" class="btn btn-secondary">Editer</a>
+                        <form method="post" action="{{ path('admin.alumni.delete', {id: alumni.id}) }}" style="display: inline-block" onsubmit="return confirm('Etes vous sur ?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ alumni.id) }}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <hr class="invis">
+
+        <div class="text-right">
+            <a href="{{ path('admin.alumni.new') }}" class="btn btn-primary">Creer une nouvelle temoignage</a>
+        </div>
+        <hr class="invis">
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "380px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
+
+
+
+
+{% endblock %}
