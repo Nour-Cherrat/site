@@ -1,0 +1,174 @@
+{% extends'base.html.twig' %}
+
+{%  block title filiere.nom %}
+
+{% block body %}
+
+    <body class="host_version">
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="progress-br float shadow">
+                <div class="progress__item"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END LOADER -->
+
+    <!-- Start header -->
+    <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ path('home') }}">
+                    <img src="../images/logo/logo-fstg.png" style="width: 200px" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbars-host">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Presentation </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="{{ path('about') }}">FSTG en bref </a>
+                                <a class="dropdown-item" href="{{ path('motDoyen') }}">Mot du doyen </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formation </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">TC </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 2}) }}">LST </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 3}) }}">Cycle </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 4}) }}">M </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">PHD </a>
+                            </div>
+                        </li>
+                        <li class="nav-item active dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Annonces </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 1}) }}">Administration </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 2}) }}">Etudiant </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 3}) }}">Manifestation </a>
+                                <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 4}) }}">Para-universitaire </a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End header -->
+
+    <div class="all-title-box" style="background-image: url('../images/logo/banner.jpg')">
+        <div class="container text-center">
+            <h1>Blog Single<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+        </div>
+    </div>
+
+    <div id="overviews" class="section wb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 blog-post-single">
+                    <div class="blog-item">
+                        <div class="image-blog">
+                        </div>
+                        <div class="post-content">
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ filiere.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h1><a href="#" title="">{{ filiere.nom }}</a></h1>
+                            </div>
+                            <div class="blog-desc">
+                                <br>
+                                <blockquote class="default">
+                                    <table>
+                                        <tr>
+                                            <th style="width: 220px;"><h4>Nom du responsable :</h4></th>
+                                            <td>
+                                                <p>
+                                                    {% if filiere.nomresp %}
+                                                        {{ filiere.nomresp }}
+                                                    {% else %}
+                                                        -
+                                                    {% endif %}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th><h4>Email du responsable :</h4></th>
+                                            <td>
+                                                <p>
+                                                    {% if filiere.emailresp %}
+                                                        {{ filiere.emailresp }}
+                                                    {% else %}
+                                                        -
+                                                    {% endif %}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th><h4>Modules :</h4></th>
+                                            <td>
+                                                {% set tab = filiere.modules | split('-') %}
+                                                {% for t in tab %}
+                                                    <p>{{ t }}</p>
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+
+
+
+
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div><!-- end col -->
+                <div class="col-lg-3 col-12 right-single">
+                    <div class="widget-search">
+                        <div class="site-search-area">
+                            <form method="get" id="site-searchform" action="#">
+                                <div>
+                                    <input class="input-text form-control" name="search-k" id="search-k" placeholder="Search keywords..." type="text">
+                                    <input id="searchsubmit" value="Search" type="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="widget-categories">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul>
+                            <li><a href="{{ path('filieres', {categorie: 1}) }}">Tronc Commun</a></li>
+                            <li><a href="{{ path('filieres', {categorie: 2}) }}">Licence</a></li>
+                            <li><a href="{{ path('filieres', {categorie: 3}) }}">Cycle d'ingenieur</a></li>
+                            <li><a href="{{ path('filieres', {categorie: 4}) }}">Master</a></li>
+                            <li><a href="{{ path('filieres', {categorie: 5}) }}">PHD</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+
+
+    </body>
+    </html>
+
+
+
+
+{% endblock %}

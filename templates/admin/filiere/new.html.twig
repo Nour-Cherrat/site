@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Creer une nvl filiere' %}
+
+{% block body %}
+
+    <div class="container mt-4" style="width: 60%">
+        <div class="jumbotron text-center">
+            <h1>Creer une filiere</h1>
+        </div>
+
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-6">{{ form_row(form.nom) }}</div>
+            <div class="col-md-6">{{ form_row(form.nom_resp) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">{{ form_row(form.categorie) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">{{ form_row(form.modules) }}</div>
+        </div>
+        {{ form_rest(form) }}
+        <button class="btn btn-primary">Creer</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+
+
+

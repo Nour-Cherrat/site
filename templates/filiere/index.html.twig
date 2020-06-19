@@ -41,11 +41,11 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formation </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="#">TC </a>
-                                <a class="dropdown-item" href="#">LST </a>
-                                <a class="dropdown-item" href="#">Cycle </a>
-                                <a class="dropdown-item" href="#">M </a>
-                                <a class="dropdown-item" href="#">PHD </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">TC </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 2}) }}">LST </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 3}) }}">Cycle </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 4}) }}">M </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">PHD </a>
                             </div>
                         </li>
                         <li class="nav-item active dropdown">
@@ -68,13 +68,15 @@
     <div class="all-title-box" style="background-image: url('../images/logo/banner.jpg')">
         <div class="container text-center">
             {% if categorie == 1 %}
-                <h1>Annonces administratives<span class="m_1">Avis aux enseignants et personnel administratif et technique.</span></h1>
+                <h1>tc<span class="m_1">details</span></h1>
             {% elseif categorie == 2 %}
-                <h1>Etudiant<span class="m_1">Avis aux etudiants.</span></h1>
+                <h1>lst<span class="m_1">details</span></h1>
             {% elseif categorie == 3 %}
-                <h1>manifestations<span class="m_1">Avis M.</span></h1>
+                <h1>ci<span class="m_1">details.</span></h1>
             {% elseif categorie == 4 %}
-                <h1>Annonces para-universitaire<span class="m_1">Avis para univ.</span></h1>
+                <h1>m<span class="m_1">details</span></h1>
+            {% elseif categorie == 5 %}
+                <h1>phd<span class="m_1">details</span></h1>
             {% endif %}
         </div>
     </div>
@@ -90,39 +92,40 @@
             <hr class="invis">
 
             <div class="row">
-                {% for annonce in annonces %}
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="blog-item">
-                            <div class="image-blog">
-                                {% if annonce.filename %}
-                                    <img src="{{ vich_uploader_asset(annonce, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% else %}
-                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% endif %}
+                {% for filiere in filieres %}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <img src="images/blog_1.jpg" alt="" class="img-fluid">
+                        </div>
+                        <div class="course-br">
+                            <div class="course-title">
+                                <h2><a href="{{ path('filiere.show', {id: filiere.id, slug: filiere.slug}) }}" title="">{{ filiere.nom }}</a></h2>
                             </div>
-                            <div class="meta-info-blog">
-                                <span><i class="fa fa-calendar"></i> <a href="#">{{ annonce.date |date("d/m/Y") }}</a> </span>
-                                <span><i class="fa fa-tag"></i>  <a href="#">{{ annonce.categorieType }}</a> </span>
-                            </div>
-                            <div class="blog-title">
-                                <h2><a href="{{ path('annonce.show', {id: annonce.id, slug: annonce.slug}) }}" title="">{{ annonce.titre }}</a></h2>
-                            </div>
-                            <div class="blog-desc">
-                                <p>{{ annonce.description | u.truncate(25, '…')}} </p>
-                            </div>
-                            <div class="blog-button">
-                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: annonce.id, slug: annonce.slug}) }}"><span>Read More<span></a>
+                            <div class="course-desc">
+                                <p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
                             </div>
                         </div>
-                        <br><br>
-                    </div><!-- end col -->
-                    <br><br>
+                        <div class="course-meta-bot">
+                            <ul>
+                                <div class="blog-button">
+                                    <a class="hover-btn-new orange" href="{{ path('filiere.show', {id: filiere.id, slug: filiere.slug}) }}"><span>Read More<span></a>
+                                </div>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div><!-- end col -->
                 {% endfor %}
             </div><!-- end row -->
+
             <hr class="hr3">
+
         </div><!-- end container -->
     </div><!-- end section -->
 
     </body>
     </html>
+
+
 {% endblock %}
