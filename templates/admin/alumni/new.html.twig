@@ -19,6 +19,16 @@
         </div>
 
         {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-8">{{ form_row(form.nom) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">{{ form_row(form.filiere) }}</div>
+            <div class="col-md-4">{{ form_row(form.imageFile) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.quote) }}</div>
+        </div>
         {{ form_rest(form) }}
         <button class="btn btn-primary">Creer</button>
         {{ form_end(form) }}

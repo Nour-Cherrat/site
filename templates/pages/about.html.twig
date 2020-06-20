@@ -168,7 +168,11 @@
                         {% for alumni in alumnis %}
                         <div class="testimonial clearfix">
                             <div class="testi-meta">
-                                <img src="images/testi_01.png" alt="" class="img-fluid">
+                                {% if alumni.filename %}
+                                    <img src="{{ vich_uploader_asset(alumni, 'imageFile') | imagine_filter('tiny') }}" alt="" class="img-fluid" style="width: 90px; height: 80px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('tiny') }}" alt="" class="img-fluid" style="width: 90px; height: 80px;">
+                                {% endif %}
                                 <h4>{{ alumni.nom }}</h4>
                             </div>
                             <div class="desc">
