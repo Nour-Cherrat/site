@@ -65,94 +65,103 @@
     </header>
     <!-- End header -->
 
-    <div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" style="height: 60%; margin-left: 20%; margin-right: 20%;">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-            <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <div id="home" class="first-section" style="background-image:
-                {% if annonces[0].filename %}
-                        url({{ vich_uploader_asset(annonces[0], 'imageFile') | imagine_filter('large') }});
-                {% else %}
-                        url('/images/annonces/empty.png');
+    <div class="row" style="background-color: #f0f5ff">
+        <div class="col-md-2">
+            <p>Welcome</p>
+            <hr class="invis">
+        </div>
+        <div class="col-md-10">
+            <div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" style="height: 400px; margin-right: 10%;">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div id="home" class="first-section" style="background-image:
+                        {% if annonces[0].filename %}
+                                url({{ vich_uploader_asset(annonces[0], 'imageFile') | imagine_filter('large') }});
+                        {% else %}
+                                url('/images/annonces/empty.png');
                 {% endif %}">
-                    <div class="dtab">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 text-right">
-                                    <div class="big-tagline">
-                                        <h2><strong>{{ annonces[0].titre}} </strong> {{ annonces[0].categorieType}}</h2>
-                                        <p class="lead">{{ annonces[0].description | u.truncate(50, '…')}} </p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{{ path('annonce.show', {id: annonces[0].id, slug: annonces[0].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
-                                    </div>
-                                </div>
-                            </div><!-- end row -->
-                        </div><!-- end container -->
+                            <div class="dtab">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 text-right">
+                                            <div class="big-tagline">
+                                                <h2><strong>{{ annonces[0].titre}} </strong> {{ annonces[0].categorieType}}</h2>
+                                                <p class="lead">{{ annonces[0].description | u.truncate(50, '…')}} </p>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href="{{ path('annonce.show', {id: annonces[0].id, slug: annonces[0].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
+                                            </div>
+                                        </div>
+                                    </div><!-- end row -->
+                                </div><!-- end container -->
+                            </div>
+                        </div><!-- end section -->
                     </div>
-                </div><!-- end section -->
-            </div>
-            <div class="carousel-item">
-                <div id="home" class="first-section" style="background-image:
-                {% if annonces[1].filename %}
-                        url({{ vich_uploader_asset(annonces[1], 'imageFile') | imagine_filter('large') }});
-                {% else %}
-                        url('/images/annonces/empty.png');
+                    <div class="carousel-item">
+                        <div id="home" class="first-section" style="background-image:
+                        {% if annonces[1].filename %}
+                                url({{ vich_uploader_asset(annonces[1], 'imageFile') | imagine_filter('large') }});
+                        {% else %}
+                                url('/images/annonces/empty.png');
                 {% endif %}">
-                    <div class="dtab">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 text-left">
-                                    <div class="big-tagline">
-                                        <h2 data-animation="animated zoomInRight">{{ annonces[1].titre}} <strong>{{ annonces[1].categorieType}}</strong></h2>
-                                        <p class="lead" data-animation="animated fadeInLeft">{{ annonces[1].description | u.truncate(50, '…')}} </p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{{ path('annonce.show', {id: annonces[1].id, slug: annonces[1].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
-                                    </div>
-                                </div>
-                            </div><!-- end row -->
-                        </div><!-- end container -->
+                            <div class="dtab">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 text-left">
+                                            <div class="big-tagline">
+                                                <h2 data-animation="animated zoomInRight">{{ annonces[1].titre}} <strong>{{ annonces[1].categorieType}}</strong></h2>
+                                                <p class="lead" data-animation="animated fadeInLeft">{{ annonces[1].description | u.truncate(50, '…')}} </p>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href="{{ path('annonce.show', {id: annonces[1].id, slug: annonces[1].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
+                                            </div>
+                                        </div>
+                                    </div><!-- end row -->
+                                </div><!-- end container -->
+                            </div>
+                        </div><!-- end section -->
                     </div>
-                </div><!-- end section -->
-            </div>
-            <div class="carousel-item">
-                <div id="home" class="first-section" style="background-image:
-                {% if annonces[2].filename %}
-                        url({{ vich_uploader_asset(annonces[2], 'imageFile') | imagine_filter('large') }});
-                {% else %}
-                        url('/images/annonces/empty.png');
+                    <div class="carousel-item">
+                        <div id="home" class="first-section" style="background-image:
+                        {% if annonces[2].filename %}
+                                url({{ vich_uploader_asset(annonces[2], 'imageFile') | imagine_filter('large') }});
+                        {% else %}
+                                url('/images/annonces/empty.png');
                 {% endif %}">
-                    <div class="dtab">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 text-center">
-                                    <div class="big-tagline">
-                                        <h2 data-animation="animated zoomInRight"><strong>{{ annonces[2].titre}}</strong> {{ annonces[2].categorieType}}</h2>
-                                        <p class="lead" data-animation="animated fadeInLeft">{{ annonces[2].description | u.truncate(50, '…')}}</p>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{{ path('annonce.show', {id: annonces[2].id, slug: annonces[2].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
-                                    </div>
-                                </div>
-                            </div><!-- end row -->
-                        </div><!-- end container -->
+                            <div class="dtab">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 text-center">
+                                            <div class="big-tagline">
+                                                <h2 data-animation="animated zoomInRight"><strong>{{ annonces[2].titre}}</strong> {{ annonces[2].categorieType}}</h2>
+                                                <p class="lead" data-animation="animated fadeInLeft">{{ annonces[2].description | u.truncate(50, '…')}}</p>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href="{{ path('annonce.show', {id: annonces[2].id, slug: annonces[2].slug}) }}" class="hover-btn-new"><span>Read More</span></a>
+                                            </div>
+                                        </div>
+                                    </div><!-- end row -->
+                                </div><!-- end container -->
+                            </div>
+                        </div><!-- end section -->
                     </div>
-                </div><!-- end section -->
-            </div>
-            <!-- Left Control -->
-            <a class="new-effect carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="fa fa-angle-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
+                    <!-- Left Control -->
+                    <a class="new-effect carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="fa fa-angle-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
 
-            <!-- Right Control -->
-            <a class="new-effect carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="fa fa-angle-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                    <!-- Right Control -->
+                    <a class="new-effect carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="fa fa-angle-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <hr class="invis">
         </div>
     </div>
 
