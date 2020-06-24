@@ -62,6 +62,20 @@ class AnnonceRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * @return Annonce[]
+     */
+    public function findByEvent() : array
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.event = 1')
+            ->orderBy('a.date', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
 
 

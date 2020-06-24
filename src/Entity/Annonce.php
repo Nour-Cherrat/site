@@ -23,8 +23,13 @@ class Annonce
     ];
 
     const STATUT = [
-        0 => 'non',
-        1 => 'oui'
+        0 => 'Non',
+        1 => 'Oui'
+    ];
+
+    const EVENT = [
+        0 => 'Non',
+        1 => 'Oui'
     ];
 
     /**
@@ -87,6 +92,21 @@ class Annonce
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+
+    /**
+     * @ORM\Column(type="integer", options={"default" : 0})
+     */
+    private $event;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_debut;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_fin;
 
     public function __construct()
     {
@@ -249,6 +269,42 @@ class Annonce
         if ($this->pdfFile instanceof UploadedFile) {
             $this->updated_at = new \DateTime('now');
         }
+        return $this;
+    }
+
+    public function getEvent(): ?int
+    {
+        return $this->event;
+    }
+
+    public function setEvent(int $event): self
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    public function getDateDebut(): ?\DateTimeInterface
+    {
+        return $this->date_debut;
+    }
+
+    public function setDateDebut(?\DateTimeInterface $date_debut): self
+    {
+        $this->date_debut = $date_debut;
+
+        return $this;
+    }
+
+    public function getDateFin(): ?\DateTimeInterface
+    {
+        return $this->date_fin;
+    }
+
+    public function setDateFin(?\DateTimeInterface $date_fin): self
+    {
+        $this->date_fin = $date_fin;
+
         return $this;
     }
 

@@ -23,15 +23,19 @@ class AnnonceType extends AbstractType
                 'required' => false
             ])
             ->add('statut', ChoiceType::class, [
-                'choices'  => [
-                    'Ne pas ajouter au slider' => 0,
-                    'Ajouter au slider' => 1,
-                ],
+                'choices' => $this->getStatus(),
+                'label' => 'Ajouter au slider'
+            ])
+            ->add('event', ChoiceType::class, [
+                'choices' => $this->getEvent(),
+                'label' => 'Ajouter au timeline'
             ])
             ->add('pdfFile', FileType::class, [
                 'label' => 'Fichier',
                 'required' => false
             ])
+            ->add('date_debut')
+            ->add('date_fin')
             ->add('description')
         ;
     }
@@ -47,6 +51,28 @@ class AnnonceType extends AbstractType
     private function getChoices()
     {
         $choices = Annonce::CATEGORIE;
+        $output = [];
+        foreach ($choices as $k => $v)
+        {
+            $output[$v] = $k;
+        }
+        return $output;
+    }
+
+    private function getStatus()
+    {
+        $choices = Annonce::STATUT;
+        $output = [];
+        foreach ($choices as $k => $v)
+        {
+            $output[$v] = $k;
+        }
+        return $output;
+    }
+
+    private function getEvent()
+    {
+        $choices = Annonce::EVENT;
         $output = [];
         foreach ($choices as $k => $v)
         {

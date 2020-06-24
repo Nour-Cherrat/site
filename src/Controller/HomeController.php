@@ -18,6 +18,8 @@ class HomeController extends AbstractController {
     public function index(AnnonceRepository $repository):Response
     {
         $annonces = $repository->findByStatus();
+        $timeline = $repository->findByEvent();
+
         $last1 = $repository->findLast(1);
         $last2 = $repository->findLast(2);
         $last3 = $repository->findLast(3);
@@ -25,6 +27,7 @@ class HomeController extends AbstractController {
 
         return $this->render('pages/home.html.twig',[
             'annonces' => $annonces,
+            'timeline' => $timeline,
             'last1' => $last1,
             'last2' => $last2,
             'last3' => $last3,

@@ -85,7 +85,7 @@
                                 url({{ vich_uploader_asset(annonces[0], 'imageFile') | imagine_filter('large') }});
                         {% else %}
                                 url('/images/annonces/empty.png');
-                {% endif %}">
+                        {% endif %}">
                             <div class="dtab">
                                 <div class="container">
                                     <div class="row">
@@ -319,11 +319,9 @@
 
 
         <div id="container">
+            {% if timeline %}
             <style>
                 *{margin: 0;padding: 0;}
-                body {
-                    background: #ddd;
-                }
 
                 #container
                 {
@@ -387,7 +385,7 @@
                 .year {
                     position: absolute;
                     top: 0px;
-                    font-size: 30px;
+                    font-size: 18px;
                     font-weight:500;
                     margin: 40px 30px;
                 }
@@ -488,144 +486,112 @@
                 }
 
                 .bg-66 {
-                    background: url('images/logo/logo-fstg.png');
+                    background: {% if timeline[0].filename %}
+                            url({{ vich_uploader_asset(timeline[0], 'imageFile') }});
+                            {% else %}
+                            url('/images/annonces/empty.png');
+                            {% endif %}
                     background-size:cover;
                 }
 
                 .bg-76 {
-                    background: url(http://austria-forum.org/attach/Wissenssammlungen/Bibliothek/Wien_mit_den_Augen_des_Adlers/Wien_der_Moderne/UNO-City,_Austria_Center_Vienna/dkaiser_hav_25.jpg);
+                    background: {% if timeline[1].filename %}
+                            url({{ vich_uploader_asset(timeline[1], 'imageFile') }});
+                {% else %}
+                url('/images/annonces/empty.png');
+                {% endif %}
                     background-size:cover;
                 }
 
                 .bg-86 {
-                    background: url('https://upload.wikimedia.org/wikipedia/commons/e/e8/Power_Plant_(Tianjin,_China).jpg');
+                    background: {% if timeline[2].filename %}
+                            url({{ vich_uploader_asset(timeline[2], 'imageFile') }});
+                {% else %}
+                url('/images/annonces/empty.png');
+                {% endif %}
                     background-size:cover;
                 }
 
                 .bg-96 {
-                    background: url(http://www.oxfordbusinessgroup.com/sites/default/files/styles/chapter_header__710x233_/public/chapter_headers/ind1_2.png?itok=uxI_081i&c=af7608f5f35cf219c326e9b6e6a7d34c);
+                    background:
+                            {% if timeline[3].filename %}
+                            url({{ vich_uploader_asset(timeline[3], 'imageFile') }});
+                            {% else %}
+                            url('/images/annonces/empty.png');
+                            {% endif %}
                     background-size:cover;
                 }
 
                 .bg-06 {
-                    background: url(http://www.3adi.org/tl_files/3ADIDocuments/Pictures/Greenshot_2014-01-08_18-32-54.jpg);
+                    background: {% if timeline[4].filename %}
+                            url({{ vich_uploader_asset(timeline[4], 'imageFile') }});
+                {% else %}
+                url('/images/annonces/empty.png');
+                {% endif %}
                     background-size:cover;
                 }
 
                 .bg-16 {
-                    background: url(https://i.dailymail.co.uk/i/pix/2012/07/23/article-0-142DF918000005DC-387_468x665.jpg);
+                    background: {% if timeline[5].filename %}
+                            url({{ vich_uploader_asset(timeline[5], 'imageFile') }});
+                {% else %}
+                url('/images/annonces/empty.png');
+                {% endif %}
                     background-size:cover;
                 }
             </style>
-            <div id="thumbs">
+            {% endif %}
+            <div id="thumbs" style="background-color: #ddd;">
+                {% if timeline %}
                 <div class="history-block bg-66">
                     <div class="cover"></div>
-                    <div class="year">1966 - 1976</div>
-                    <div class="title">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                    <div class="year">{{ timeline[0].dateDebut |date("d/m/Y")}} - {{ timeline[0].dateFin |date("d/m/Y")}}</div>
+                    <div class="title">{{ timeline[0].titre}}</div>
                     <div class="timeline">
-                        <ul>
-                            <li><a href="" class="timelineYear">1966</a></li>
-                            <li><a href="" class="timelineYear">1967</a></li>
-                            <li><a href="" class="timelineYear">1968</a></li>
-                            <li><a href="" class="timelineYear">1969</a></li>
-                            <li><a href="" class="timelineYear">1970</a></li>
-                            <li><a href="" class="timelineYear">1971</a></li>
-                            <li><a href="" class="timelineYear">1972</a></li>
-                            <li><a href="" class="timelineYear">1973</a></li>
-                            <li><a href="" class="timelineYear">1974</a></li>
-                            <li><a href="" class="timelineYear">1975</a></li>
-                            <li><a href="" class="timelineYear">1976</a></li>
-                        </ul>
+                        {{ timeline[0].description | u.truncate(50, '…') }}
                     </div>
                 </div>
                 <div class="history-block bg-76">
                     <div class="cover"></div>
-                    <div class="year">1976 - 1986</div>
-                    <div class="title">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                    <div class="year">{{ timeline[1].dateDebut |date("d/m/Y")}} - {{ timeline[1].dateFin |date("d/m/Y")}}</div>
+                    <div class="title">{{ timeline[1].titre}}</div>
                     <div class="timeline">
-                        <ul>
-                            <li><a href="" class="timelineYear">1976</a></li>
-                            <li><a href="" class="timelineYear">1977</a></li>
-                            <li><a href="" class="timelineYear">1978</a></li>
-                            <li><a href="" class="timelineYear">1979</a></li>
-                            <li><a href="" class="timelineYear">1980</a></li>
-                            <li><a href="" class="timelineYear">1981</a></li>
-                            <li><a href="" class="timelineYear">1982</a></li>
-                            <li><a href="" class="timelineYear">1983</a></li>
-                            <li><a href="" class="timelineYear">1984</a></li>
-                            <li><a href="" class="timelineYear">1985</a></li>
-                            <li><a href="" class="timelineYear">1986</a></li>
-                        </ul>
+                        {{ timeline[1].description | u.truncate(50, '…') }}
                     </div>
                 </div>
                 <div class="history-block bg-86">
                     <div class="cover"></div>
-                    <div class="year">1986 - 1996</div>
-                    <div class="title">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                    <div class="year">{{ timeline[2].dateDebut |date("d/m/Y")}} - {{ timeline[2].dateFin |date("d/m/Y")}}</div>
+                    <div class="title">{{ timeline[2].titre}}</div>
                     <div class="timeline">
-                        <ul>
-                            <li><a href="" class="timelineYear">1986</a></li>
-                            <li><a href="" class="timelineYear">1987</a></li>
-                            <li><a href="" class="timelineYear">1988</a></li>
-                            <li><a href="" class="timelineYear">1989</a></li>
-                            <li><a href="" class="timelineYear">1990</a></li>
-                            <li><a href="" class="timelineYear">1991</a></li>
-                            <li><a href="" class="timelineYear">1992</a></li>
-                            <li><a href="" class="timelineYear">1993</a></li>
-                            <li><a href="" class="timelineYear">1994</a></li>
-                            <li><a href="" class="timelineYear">1995</a></li>
-                            <li><a href="" class="timelineYear">1996</a></li>
-                        </ul>
+                        {{ timeline[2].description | u.truncate(50, '…') }}
                     </div>
                 </div>
                 <div class="history-block bg-96">
                     <div class="cover"></div>
-                    <div class="year">1996 - 2006</div>
-                    <div class="title">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                    <div class="year">{{ timeline[3].dateDebut |date("d/m/Y")}} - {{ timeline[3].dateFin |date("d/m/Y")}}</div>
+                    <div class="title">{{ timeline[3].titre}}</div>
                     <div class="timeline">
-                        <ul>
-                            <li><a href="" class="timelineYear">1996</a></li>
-                            <li><a href="" class="timelineYear">1997</a></li>
-                            <li><a href="" class="timelineYear">1998</a></li>
-                            <li><a href="" class="timelineYear">1999</a></li>
-                            <li><a href="" class="timelineYear">2000</a></li>
-                            <li><a href="" class="timelineYear">2001</a></li>
-                            <li><a href="" class="timelineYear">2002</a></li>
-                            <li><a href="" class="timelineYear">2003</a></li>
-                            <li><a href="" class="timelineYear">2004</a></li>
-                            <li><a href="" class="timelineYear">2005</a></li>
-                            <li><a href="" class="timelineYear">2006</a></li>
-                        </ul>
+                        {{ timeline[3].description | u.truncate(50, '…') }}
                     </div>
                 </div>
                 <div class="history-block bg-06">
                     <div class="cover"></div>
-                    <div class="year">2006-2016</div>
-                    <div class="title">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                    <div class="year">{{ timeline[4].dateDebut |date("d/m/Y")}} - {{ timeline[4].dateFin |date("d/m/Y")}}</div>
+                    <div class="title">{{ timeline[4].titre}}</div>
                     <div class="timeline">
-                        <ul>
-                            <li><a href="" class="timelineYear">2006</a></li>
-                            <li><a href="" class="timelineYear">2007</a></li>
-                            <li><a href="" class="timelineYear">2008</a></li>
-                            <li><a href="" class="timelineYear">2009</a></li>
-                            <li><a href="" class="timelineYear">2010</a></li>
-                            <li><a href="" class="timelineYear">2011</a></li>
-                            <li><a href="" class="timelineYear">2012</a></li>
-                            <li><a href="" class="timelineYear">2013</a></li>
-                            <li><a href="" class="timelineYear">2014</a></li>
-                            <li><a href="" class="timelineYear">2015</a></li>
-                            <li><a href="" class="timelineYear">2016</a></li>
-                        </ul>
+                        {{ timeline[4].description | u.truncate(50, '…') }}
                     </div>
                 </div>
                 <div class="history-block bg-16">
                     <div class="cover"></div>
-                    <div class="year">FUTURE</div>
-                    <div class="title">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</div>
+                    <div class="year">{{ timeline[5].dateDebut |date("d/m/Y")}} - {{ timeline[5].dateFin |date("d/m/Y")}}</div>
+                    <div class="title">{{ timeline[5].titre}}</div>
                     <div class="timeline">
-                        To our bright future!!! :)
+                        {{ timeline[5].description | u.truncate(50, '…') }}
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div>
 

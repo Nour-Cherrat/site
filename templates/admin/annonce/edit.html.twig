@@ -23,13 +23,20 @@
             <div class="col-md-12">{{ form_row(form.titre) }}</div>
         </div>
         <div class="row">
-            <div class="col-md-6">{{ form_row(form.categorie) }}</div>
-            <div class="col-md-3">{{ form_row(form.statut) }}</div>
-            <div class="col-md-3">{{ form_row(form.imageFile) }}</div>
+            <div class="col-md-4">{{ form_row(form.categorie) }}</div>
+            <div class="col-md-4">{{ form_row(form.imageFile) }}</div>
+            <div class="col-md-4">{{ form_row(form.pdfFile) }}</div>
         </div>
         <div class="row">
-            <div class="col-md-9">{{ form_row(form.description) }}</div>
-            <div class="col-md-3">{{ form_row(form.pdfFile) }}</div>
+            <div class="col-md-6">{{ form_row(form.statut) }}</div>
+            <div class="col-md-6">{{ form_row(form.event) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">{{ form_row(form.date_debut) }}</div>
+            <div class="col-md-6">{{ form_row(form.date_fin) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.description) }}</div>
         </div>
         {{ form_rest(form) }}
         <button class="btn btn-primary">Editer</button>
