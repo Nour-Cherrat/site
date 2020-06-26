@@ -39,13 +39,13 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formation </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formations </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">TC </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 2}) }}">LST </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 3}) }}">Cycle </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 4}) }}">M </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">PHD </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">Tronc Commun</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 2}) }}">LST</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 3}) }}">Cycle d'ingenieur</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 4}) }}">Master</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">Doctorat</a>
                             </div>
                         </li>
                         <li class="nav-item active dropdown">
@@ -81,13 +81,6 @@
 
     <div id="overviews" class="section wb">
         <div class="container">
-            <div class="section-title row text-center">
-                <div class="col-md-8 offset-md-2">
-                    <p class="lead">une description</p>
-                </div>
-            </div><!-- end title -->
-
-            <hr class="invis">
 
             <div class="row">
                 {% for annonce in annonces %}

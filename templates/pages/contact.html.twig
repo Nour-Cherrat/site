@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ path('home') }}">
-                    <img src="images/logo/logo-fstg.png" style="width: 200px" alt="" />
+                    <img src="images/logo/test1.png" style="width: 200px" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -39,13 +39,13 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formation </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formations </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">TC </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 2}) }}">LST </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 3}) }}">Cycle </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 4}) }}">M </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">PHD </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">Tronc Commun</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 2}) }}">LST</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 3}) }}">Cycle d'ingenieur</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 4}) }}">Master</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">Doctorat</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -73,10 +73,6 @@
 
     <div id="contact" class="section wb">
         <div class="container">
-            <div class="section-title text-center">
-                <h3>Need Help?!</h3>
-                <p class="lead">Please fill out the form below. <br></p>
-            </div><!-- end title -->
 
             {% for message in app.flashes('success') %}
                 <div class="alert alert-success">
@@ -95,10 +91,10 @@
                                     <div class="col-md-6" style="color: whitesmoke; font-size: 18px">{{ form_row(form.nom) }}</div>
                                     <div class="col-md-6" style="color: whitesmoke; font-size: 18px">{{ form_row(form.prenom) }}</div>
                                 </div>
+                                <div class="col-md-12" style="color: whitesmoke; font-size: 18px">{{ form_row(form.email) }}</div>
                                 <div class="row">
-                                    <div class="col-md-6" style="color: whitesmoke; font-size: 18px">{{ form_row(form.email) }}</div>
-                                    <div class="col-md-3" style="color: whitesmoke; font-size: 18px">{{ form_row(form.numero) }}</div>
-                                    <div class="col-md-3" style="color: whitesmoke; font-size: 18px">{{ form_row(form.code) }}</div>
+                                    <div class="col-md-6" style="color: whitesmoke; font-size: 18px">{{ form_row(form.numero) }}</div>
+                                    <div class="col-md-6" style="color: whitesmoke; font-size: 18px">{{ form_row(form.code) }}</div>
                                 </div>
                                 <div class="col-md-12" style="color: whitesmoke; font-size: 18px">{{ form_row(form.message) }}</div>
                                 {{ form_rest(form) }}

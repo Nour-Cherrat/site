@@ -46,10 +46,10 @@
             <tbody>
             {% for pres in present %}
                 <tr>
-                    <td>{{ pres.about }}</td>
-                    <td>{{ pres.mission }}</td>
-                    <td>{{ pres.vision }}</td>
-                    <td>{{ pres.histoire }}</td>
+                    <td>{{ pres.about | u.truncate(25, '…')}}</td>
+                    <td>{{ pres.mission | u.truncate(25, '…')}}</td>
+                    <td>{{ pres.vision | u.truncate(25, '…')}}</td>
+                    <td>{{ pres.histoire | u.truncate(25, '…')}}</td>
                     <td>
                         <a href="{{ path('admin.home.about', {id: pres.id}) }}" class="btn btn-secondary">Editer</a>
                     </td>

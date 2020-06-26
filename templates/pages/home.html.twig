@@ -39,13 +39,13 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formation </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formations </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">TC </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 2}) }}">LST </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 3}) }}">Cycle </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 4}) }}">M </a>
-                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">PHD </a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">Tronc Commun</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 2}) }}">LST</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 3}) }}">Cycle d'ingenieur</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 4}) }}">Master</a>
+                                <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">Doctorat</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -67,7 +67,7 @@
 
     <div class="row" style="background-color: #f0f5ff">
         <div class="col-md-3">
-            <img src="images/logo/logo-fstg3.png" style="margin-left: 50px; margin-top: 30px; width: 250px;">
+            <img src="images/logo/logo-fstg5.png" style="margin-left: 50px; margin-top: 30px; width: 250px;">
             <hr class="invis">
         </div>
         <div class="col-md-9">
@@ -165,161 +165,9 @@
         </div>
     </div>
 
-    <div id="overviews" class="section wb">
-        <div class="container">
-            <div style="background-color: #f2f3f5;">
-                <div class="section-title row text-center">
-                    <div class="col-md-8 offset-md-2">
-                        <h3>About</h3>
-                        <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
-                    </div>
-                </div><!-- end title -->
-            </div>
-
-
-
-            <div class="message-box">
-                <h4>Administration</h4>
-            </div><!-- end messagebox -->
-
-            <div class="row align-items-center">
-                {% for l in last1 %}
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="blog-item">
-                            <div class="image-blog">
-                                {% if l.filename %}
-                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% else %}
-                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% endif %}
-                            </div>
-                            <div class="meta-info-blog">
-                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
-                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
-                            </div>
-                            <div class="blog-title">
-                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
-                            </div>
-                            <div class="blog-desc">
-                                <p>{{ l.description | u.truncate(25, '…')}} </p>
-                            </div>
-                            <div class="blog-button">
-                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
-                            </div>
-                        </div>
-                    </div><!-- end col -->
-                {% endfor %}
-            </div>
-
-
-            <div class="message-box">
-                <h4>Etudiant</h4>
-            </div><!-- end messagebox -->
-
-            <div class="row align-items-center">
-                {% for l in last2 %}
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="blog-item">
-                            <div class="image-blog">
-                                {% if l.filename %}
-                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% else %}
-                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% endif %}
-                            </div>
-                            <div class="meta-info-blog">
-                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
-                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
-                            </div>
-                            <div class="blog-title">
-                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
-                            </div>
-                            <div class="blog-desc">
-                                <p>{{ l.description | u.truncate(25, '…')}} </p>
-                            </div>
-                            <div class="blog-button">
-                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
-                            </div>
-                        </div>
-                    </div><!-- end col -->
-                {% endfor %}
-            </div>
-
-
-            <div class="message-box">
-                <h4>Manifestation</h4>
-            </div><!-- end messagebox -->
-
-            <div class="row align-items-center">
-                {% for l in last3 %}
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="blog-item">
-                            <div class="image-blog">
-                                {% if l.filename %}
-                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% else %}
-                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% endif %}
-                            </div>
-                            <div class="meta-info-blog">
-                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
-                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
-                            </div>
-                            <div class="blog-title">
-                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
-                            </div>
-                            <div class="blog-desc">
-                                <p>{{ l.description | u.truncate(25, '…')}} </p>
-                            </div>
-                            <div class="blog-button">
-                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
-                            </div>
-                        </div>
-                    </div><!-- end col -->
-                {% endfor %}
-            </div>
-
-
-            <div class="message-box">
-                <h4>Para-universitaire</h4>
-            </div><!-- end messagebox -->
-
-            <div class="row align-items-center">
-                {% for l in last4 %}
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="blog-item">
-                            <div class="image-blog">
-                                {% if l.filename %}
-                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% else %}
-                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
-                                {% endif %}
-                            </div>
-                            <div class="meta-info-blog">
-                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
-                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
-                            </div>
-                            <div class="blog-title">
-                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
-                            </div>
-                            <div class="blog-desc">
-                                <p>{{ l.description | u.truncate(25, '…')}} </p>
-                            </div>
-                            <div class="blog-button">
-                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
-                            </div>
-                        </div>
-                    </div><!-- end col -->
-                {% endfor %}
-            </div>
-        </div><!-- end container -->
-    </div><!-- end section -->
-
-    <!-- old timeline -->
-
-
-        <div id="container">
-            {% if timeline %}
+    <!-- timeline -->
+    <div id="container">
+        {% if timeline %}
             <style>
                 *{margin: 0;padding: 0;}
 
@@ -488,9 +336,9 @@
                 .bg-66 {
                     background: {% if timeline[0].filename %}
                             url({{ vich_uploader_asset(timeline[0], 'imageFile') }});
-                            {% else %}
-                            url('/images/annonces/empty.png');
-                            {% endif %}
+                {% else %}
+                url('/images/annonces/empty.png');
+                {% endif %}
                     background-size:cover;
                 }
 
@@ -514,11 +362,11 @@
 
                 .bg-96 {
                     background:
-                            {% if timeline[3].filename %}
+                    {% if timeline[3].filename %}
                             url({{ vich_uploader_asset(timeline[3], 'imageFile') }});
-                            {% else %}
-                            url('/images/annonces/empty.png');
-                            {% endif %}
+                {% else %}
+                url('/images/annonces/empty.png');
+                {% endif %}
                     background-size:cover;
                 }
 
@@ -540,9 +388,9 @@
                     background-size:cover;
                 }
             </style>
-            {% endif %}
-            <div id="thumbs" style="background-color: #ddd;">
-                {% if timeline %}
+        {% endif %}
+        <div id="thumbs" style="background-color: #ddd;">
+            {% if timeline %}
                 <div class="history-block bg-66">
                     <div class="cover"></div>
                     <div class="year">{{ timeline[0].dateDebut |date("d/m/Y")}} - {{ timeline[0].dateFin |date("d/m/Y")}}</div>
@@ -591,13 +439,156 @@
                         {{ timeline[5].description | u.truncate(50, '…') }}
                     </div>
                 </div>
-                {% endif %}
-            </div>
+            {% endif %}
         </div>
+    </div>
 
 
+    <div id="overviews" class="section wb">
+        <div class="container">
+            <div style="background-color: #f2f3f5;">
+                <div class="section-title row text-center">
+                    <div class="col-md-8 offset-md-2">
+                        <hr class="invis">
+                        <h3>Annonces</h3>
+                        <hr class="invis">
+                    </div>
+                </div><!-- end title -->
+            </div>
 
+            <div class="message-box">
+                <h4>Administration</h4>
+            </div><!-- end messagebox -->
 
+            <div class="row align-items-center">
+                {% for l in last1 %}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-item">
+                            <div class="image-blog">
+                                {% if l.filename %}
+                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
+                            </div>
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
+                            </div>
+                            <div class="blog-desc">
+                                <p>{{ l.description | u.truncate(25, '…')}} </p>
+                            </div>
+                            <div class="blog-button">
+                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
+            </div>
+
+            <div class="message-box">
+                <h4>Etudiant</h4>
+            </div><!-- end messagebox -->
+
+            <div class="row align-items-center">
+                {% for l in last2 %}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-item">
+                            <div class="image-blog">
+                                {% if l.filename %}
+                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
+                            </div>
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
+                            </div>
+                            <div class="blog-desc">
+                                <p>{{ l.description | u.truncate(25, '…')}} </p>
+                            </div>
+                            <div class="blog-button">
+                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
+            </div>
+
+            <div class="message-box">
+                <h4>Manifestation</h4>
+            </div><!-- end messagebox -->
+
+            <div class="row align-items-center">
+                {% for l in last3 %}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-item">
+                            <div class="image-blog">
+                                {% if l.filename %}
+                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
+                            </div>
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
+                            </div>
+                            <div class="blog-desc">
+                                <p>{{ l.description | u.truncate(25, '…')}} </p>
+                            </div>
+                            <div class="blog-button">
+                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
+            </div>
+
+            <div class="message-box">
+                <h4>Para-universitaire</h4>
+            </div><!-- end messagebox -->
+
+            <div class="row align-items-center">
+                {% for l in last4 %}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-item">
+                            <div class="image-blog">
+                                {% if l.filename %}
+                                    <img src="{{ vich_uploader_asset(l, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% else %}
+                                    <img src="{{ '/images/annonces/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                                {% endif %}
+                            </div>
+                            <div class="meta-info-blog">
+                                <span><i class="fa fa-calendar"></i> <a href="#">{{ l.date |date("d/m/Y") }}</a> </span>
+                                <span><i class="fa fa-tag"></i>  <a href="#">{{ l.categorieType }}</a> </span>
+                            </div>
+                            <div class="blog-title">
+                                <h2><a href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}" title="">{{ l.titre }}</a></h2>
+                            </div>
+                            <div class="blog-desc">
+                                <p>{{ l.description | u.truncate(25, '…')}} </p>
+                            </div>
+                            <div class="blog-button">
+                                <a class="hover-btn-new orange" href="{{ path('annonce.show', {id: l.id, slug: l.slug}) }}"><span>Read More<span></a>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
 
 
     <div class="section cl">
