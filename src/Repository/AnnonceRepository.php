@@ -70,7 +70,7 @@ class AnnonceRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('a')
             ->andWhere('a.event = 1')
             ->orderBy('a.date', 'DESC')
-            ->setMaxResults(6)
+            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
             ;

@@ -253,7 +253,7 @@
                     display:none;
                     position: absolute;
                     bottom: 80px;
-                    font-size: 20px;
+                    font-size: 15px;
                     margin: 20px;
                     transition: display 0.8s;
                 }
@@ -334,111 +334,38 @@
                 }
 
                 .bg-66 {
-                    background: {% if timeline[0].filename %}
-                            url({{ vich_uploader_asset(timeline[0], 'imageFile') }});
-                {% else %}
-                url('/images/annonces/empty.png');
-                {% endif %}
-                    background-size:cover;
-                }
-
-                .bg-76 {
-                    background: {% if timeline[1].filename %}
-                            url({{ vich_uploader_asset(timeline[1], 'imageFile') }});
-                {% else %}
-                url('/images/annonces/empty.png');
-                {% endif %}
-                    background-size:cover;
-                }
-
-                .bg-86 {
-                    background: {% if timeline[2].filename %}
-                            url({{ vich_uploader_asset(timeline[2], 'imageFile') }});
-                {% else %}
-                url('/images/annonces/empty.png');
-                {% endif %}
-                    background-size:cover;
-                }
-
-                .bg-96 {
                     background:
-                    {% if timeline[3].filename %}
-                            url({{ vich_uploader_asset(timeline[3], 'imageFile') }});
-                {% else %}
-                url('/images/annonces/empty.png');
-                {% endif %}
+                        {% for time in timeline %}
+                            {% if time.filename %}
+                                url({{ vich_uploader_asset(time, 'imageFile') }});
+                            {% else %}
+                                url('/images/annonces/empty.png');
+                            {% endif %}
+                        {% endfor %}
                     background-size:cover;
                 }
 
-                .bg-06 {
-                    background: {% if timeline[4].filename %}
-                            url({{ vich_uploader_asset(timeline[4], 'imageFile') }});
-                {% else %}
-                url('/images/annonces/empty.png');
-                {% endif %}
-                    background-size:cover;
-                }
-
-                .bg-16 {
-                    background: {% if timeline[5].filename %}
-                            url({{ vich_uploader_asset(timeline[5], 'imageFile') }});
-                {% else %}
-                url('/images/annonces/empty.png');
-                {% endif %}
-                    background-size:cover;
-                }
             </style>
         {% endif %}
         <div id="thumbs" style="background-color: #ddd;">
             {% if timeline %}
-                <div class="history-block bg-66">
-                    <div class="cover"></div>
-                    <div class="year">{{ timeline[0].dateDebut |date("d/m/Y")}} - {{ timeline[0].dateFin |date("d/m/Y")}}</div>
-                    <div class="title">{{ timeline[0].titre}}</div>
-                    <div class="timeline">
-                        {{ timeline[0].description | u.truncate(50, '…') }}
+                {% for time in timeline %}
+                    <div class="history-block bg-66">
+                        <div class="cover"></div>
+                        <div class="year">
+                            {% if time.dateDebut %}
+                                {{ time.dateDebut |date("d/m/Y")}}
+                            {% endif %}
+                            {% if time.dateFin %}
+                                - {{ time.dateFin |date("d/m/Y")}}
+                            {% endif %}
+                        </div>
+                        <div class="title">{{ time.titre}}</div>
+                        <div class="timeline">
+                            {{ time.description | u.truncate(50, '…') }}
+                        </div>
                     </div>
-                </div>
-                <div class="history-block bg-76">
-                    <div class="cover"></div>
-                    <div class="year">{{ timeline[1].dateDebut |date("d/m/Y")}} - {{ timeline[1].dateFin |date("d/m/Y")}}</div>
-                    <div class="title">{{ timeline[1].titre}}</div>
-                    <div class="timeline">
-                        {{ timeline[1].description | u.truncate(50, '…') }}
-                    </div>
-                </div>
-                <div class="history-block bg-86">
-                    <div class="cover"></div>
-                    <div class="year">{{ timeline[2].dateDebut |date("d/m/Y")}} - {{ timeline[2].dateFin |date("d/m/Y")}}</div>
-                    <div class="title">{{ timeline[2].titre}}</div>
-                    <div class="timeline">
-                        {{ timeline[2].description | u.truncate(50, '…') }}
-                    </div>
-                </div>
-                <div class="history-block bg-96">
-                    <div class="cover"></div>
-                    <div class="year">{{ timeline[3].dateDebut |date("d/m/Y")}} - {{ timeline[3].dateFin |date("d/m/Y")}}</div>
-                    <div class="title">{{ timeline[3].titre}}</div>
-                    <div class="timeline">
-                        {{ timeline[3].description | u.truncate(50, '…') }}
-                    </div>
-                </div>
-                <div class="history-block bg-06">
-                    <div class="cover"></div>
-                    <div class="year">{{ timeline[4].dateDebut |date("d/m/Y")}} - {{ timeline[4].dateFin |date("d/m/Y")}}</div>
-                    <div class="title">{{ timeline[4].titre}}</div>
-                    <div class="timeline">
-                        {{ timeline[4].description | u.truncate(50, '…') }}
-                    </div>
-                </div>
-                <div class="history-block bg-16">
-                    <div class="cover"></div>
-                    <div class="year">{{ timeline[5].dateDebut |date("d/m/Y")}} - {{ timeline[5].dateFin |date("d/m/Y")}}</div>
-                    <div class="title">{{ timeline[5].titre}}</div>
-                    <div class="timeline">
-                        {{ timeline[5].description | u.truncate(50, '…') }}
-                    </div>
-                </div>
+                {% endfor %}
             {% endif %}
         </div>
     </div>
@@ -457,7 +384,7 @@
             </div>
 
             <div class="message-box">
-                <h4>Administration</h4>
+                <h4 style="font-size: 25px;">Administration</h4>
             </div><!-- end messagebox -->
 
             <div class="row align-items-center">
@@ -487,10 +414,11 @@
                         </div>
                     </div><!-- end col -->
                 {% endfor %}
+
             </div>
 
             <div class="message-box">
-                <h4>Etudiant</h4>
+                <h4 style="font-size: 25px;">Etudiant</h4>
             </div><!-- end messagebox -->
 
             <div class="row align-items-center">
@@ -523,7 +451,7 @@
             </div>
 
             <div class="message-box">
-                <h4>Manifestation</h4>
+                <h4 style="font-size: 25px;">Manifestation</h4>
             </div><!-- end messagebox -->
 
             <div class="row align-items-center">
@@ -556,7 +484,7 @@
             </div>
 
             <div class="message-box">
-                <h4>Para-universitaire</h4>
+                <h4 style="font-size: 25px;">Para-universitaire</h4>
             </div><!-- end messagebox -->
 
             <div class="row align-items-center">
