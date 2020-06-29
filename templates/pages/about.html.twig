@@ -77,7 +77,7 @@
                 <div class="col-md-8 offset-md-2">
                     <h3>Presentation de la FSTG</h3>
                     {% if present %}
-                    <p class="lead">{{ present.about }}</p>
+                    <p class="lead">{{ present.about | nl2br }}</p>
                     {% endif %}
                 </div>
             </div><!-- end title -->
@@ -95,10 +95,7 @@
                         <h3>Mission</h3>
                         <div class="tr-pa">M</div>
                         {% if present %}
-                            {% set pres = present.mission | split('-') %}
-                            {% for p in pres %}
-                                <p>{{ p }}</p>
-                            {% endfor %}
+                                <p>{{ present.mission | nl2br }}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -108,7 +105,7 @@
                         <h3>Vision</h3>
                         <div class="tr-pa">V</div>
                         {% if present %}
-                            <p>{{ present.vision }}</p>
+                            <p>{{ present.vision | nl2br }}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -118,7 +115,7 @@
                         <h3>Histoire</h3>
                         <div class="tr-pa">H</div>
                         {% if present %}
-                            <p>{{ present.histoire }}</p>
+                            <p>{{ present.histoire | nl2br }}</p>
                         {% endif %}
                     </div>
                 </div>

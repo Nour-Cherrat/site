@@ -84,8 +84,8 @@
                     <div class="message-box">
                         {% if mot %}
                         <h4>{{ mot.nom }}</h4>
-                        <h2>"{{ mot.quote }}"</h2>
-                        <p>"{{ mot.motD }}"</p>
+                        <h2>"{{ mot.quote | nl2br }}"</h2>
+                        <p>"{{ mot.motD | nl2br }}"</p>
                         {% endif %}
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
