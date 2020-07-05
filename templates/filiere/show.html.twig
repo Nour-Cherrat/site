@@ -77,6 +77,11 @@
                 <div class="col-lg-9 blog-post-single">
                     <div class="blog-item">
                         <div class="image-blog">
+                            {% if filiere.filename %}
+                                <img src="{{ vich_uploader_asset(filiere, 'imageFile') | imagine_filter('medium') }}" alt="" class="img-fluid" style="width: 100%; height: 500px;">
+                            {% else %}
+                                <img src="{{ '/images/formations/empty.png' | imagine_filter('medium') }}" alt="" class="img-fluid" style="width: 100%; height: 500px;">
+                            {% endif %}
                         </div>
                         <div class="post-content">
                             <div class="meta-info-blog">
@@ -86,6 +91,9 @@
                                 <h1><a href="#" title="">{{ filiere.nom }}</a></h1>
                             </div>
                             <div class="blog-desc">
+                                {% if filiere.pdfname %}
+                                    <a href="{{ vich_uploader_asset(filiere, 'pdfFile') }}">{{ filiere.pdfname}}</a> <br>
+                                {% endif %}
                                 <br>
                                 <blockquote class="default">
                                     <table>

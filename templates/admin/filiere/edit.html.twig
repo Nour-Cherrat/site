@@ -24,10 +24,15 @@
             <div class="col-md-6">{{ form_row(form.nom_resp) }}</div>
         </div>
         <div class="row">
-            <div class="col-md-6">{{ form_row(form.categorie) }}</div>
+            <div class="col-md-12">{{ form_row(form.email_resp) }}</div>
         </div>
         <div class="row">
-            <div class="col-md-9">{{ form_row(form.modules) }}</div>
+            <div class="col-md-4">{{ form_row(form.categorie) }}</div>
+            <div class="col-md-4">{{ form_row(form.imageFile) }}</div>
+            <div class="col-md-4">{{ form_row(form.pdfFile) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.modules) }}</div>
         </div>
         {{ form_rest(form) }}
         <button class="btn btn-primary">Editer</button>

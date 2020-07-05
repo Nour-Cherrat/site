@@ -88,8 +88,12 @@
                 {% for filiere in filieres %}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="course-item">
-                        <div class="image-blog">
-                            <img src="images/blog_1.jpg" alt="" class="img-fluid">
+                        <div class="image-blog" style="border-top: 1px solid #4babb1; border-right: 1px solid #4babb1; border-left: 1px solid #4babb1;">
+                            {% if filiere.filename %}
+                                <img src="{{ vich_uploader_asset(filiere, 'imageFile') | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                            {% else %}
+                                <img src="{{ '/images/formations/empty.png' | imagine_filter('thumb') }}" alt="" class="img-fluid" style="width: 100%; height: 320px;">
+                            {% endif %}
                         </div>
                         <div class="course-br">
                             <div class="course-title">
@@ -105,7 +109,6 @@
                                     <a class="hover-btn-new orange" href="{{ path('filiere.show', {id: filiere.id, slug: filiere.slug}) }}"><span>Read More<span></a>
                                 </div>
                             </ul>
-
                         </div>
                     </div>
                 </div><!-- end col -->

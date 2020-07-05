@@ -5,9 +5,13 @@ namespace App\Entity;
 use App\Repository\FiliereRepository;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=FiliereRepository::class)
+ * @Vich\Uploadable()
  */
 class Filiere
 {
@@ -50,6 +54,35 @@ class Filiere
      * @ORM\Column(type="integer")
      */
     private $categorie;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $filename;
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="formation_image", fileNameProperty="filename")
+     */
+    private $imageFile;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pdfname;
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="uploads", fileNameProperty="pdfname")
+     */
+    private $pdfFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
     public function getId(): ?int
     {
@@ -125,4 +158,102 @@ class Filiere
     {
         return self::CATEGORIE[$this->categorie];
     }
+
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string|null $filename
+     * @return Filiere
+     */
+    public function setFilename(?string $filename): Filiere
+    {
+        $this->filename = $filename;
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     * @return Filiere
+     */
+    public function setImageFile(?File $imageFile): Filiere
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updated_at = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPdfname(): ?string
+    {
+        return $this->pdfname;
+    }
+
+    /**
+     * @param string|null $pdfname
+     * @return Filiere
+     */
+    public function setPdfname(?string $pdfname): Filiere
+    {
+        $this->pdfname = $pdfname;
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getPdfFile(): ?File
+    {
+        return $this->pdfFile;
+    }
+
+    /**
+     * @param File|null $pdfFile
+     * @return Filiere
+     */
+    public function setPdfFile(?File $pdfFile): Filiere
+    {
+        $this->pdfFile = $pdfFile;
+        if ($this->pdfFile instanceof UploadedFile) {
+            $this->updated_at = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * @param mixed $updated_at
+     * @return Filiere
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->updated_at = $updated_at;
+        return $this;
+    }
+
+
 }
