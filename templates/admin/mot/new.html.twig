@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Creer un nv mot' %}
+
+{% block body %}
+
+    <div class="sidenav" id="mySidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >×</a>
+        <a href="{{ path('admin.annonce.index') }}">Annonce</a> <br>
+        <a href="{{ path('admin.home.index') }}">Presentation de la FSTG</a> <br>
+        <a href="{{ path('admin.mot.index') }}">Mot du Doyen</a> <br>
+        <a href="{{ path('admin.alumni.index') }}">Alumni</a> <br>
+        <a href="{{ path('admin.filiere.index') }}">Formation</a> <br>
+    </div>
+
+    <div class="container mt-4" style="width: 60%">
+        <div class="jumbotron text-center">
+            <h1>Creer un nv mot</h1>
+        </div>
+
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.nom) }}</div>
+            <div class="col-md-5">{{ form_row(form.quote) }}</div>
+            <div class="col-md-3">{{ form_row(form.imageFile) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.motD) }}</div>
+        </div>
+        {{ form_rest(form) }}
+        <button class="btn btn-primary">Creer</button>
+        {{ form_end(form) }}
+        <hr class="invis">
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "380px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
+
+{% endblock %}
+
+
+

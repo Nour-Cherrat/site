@@ -51,13 +51,21 @@
                     <td>{{ pres.vision | u.truncate(25, '…')}}</td>
                     <td>{{ pres.histoire | u.truncate(25, '…')}}</td>
                     <td>
-                        <a href="{{ path('admin.home.about', {id: pres.id}) }}" class="btn btn-secondary">Editer</a>
+                        <a href="{{ path('admin.home.edit', {id: pres.id}) }}" class="btn btn-secondary">Editer</a>
+                        <form method="post" action="{{ path('admin.home.delete', {id: pres.id}) }}" style="display: inline-block" onsubmit="return confirm('Etes vous sur ?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ pres.id) }}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
 
+        <div class="text-right">
+            <a href="{{ path('admin.home.new') }}" class="btn btn-primary">Creer une nouvelle annonce</a>
+        </div>
         <hr class="invis">
     </div>
 

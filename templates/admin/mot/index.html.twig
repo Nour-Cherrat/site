@@ -51,12 +51,20 @@
                     <td>{{ mot.motD }}</td>
                     <td>
                         <a href="{{ path('admin.mot.edit', {id: mot.id}) }}" class="btn btn-secondary">Editer</a>
+                        <form method="post" action="{{ path('admin.mot.delete', {id: mot.id}) }}" style="display: inline-block" onsubmit="return confirm('Etes vous sur ?')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ mot.id) }}">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
 
+        <div class="text-right">
+            <a href="{{ path('admin.mot.new') }}" class="btn btn-primary">Creer une nouvelle annonce</a>
+        </div>
         <hr class="invis">
     </div>
 

@@ -76,9 +76,9 @@
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
                     <h3>Presentation de la FSTG</h3>
-                    {% if present %}
-                    <p class="lead">{{ present.about | nl2br }}</p>
-                    {% endif %}
+                    {% for pres in present %}
+                    <p class="lead">{{ pres.about | nl2br }}</p>
+                    {% endfor %}
                 </div>
             </div><!-- end title -->
 
@@ -89,14 +89,13 @@
     <div class="hmv-box">
         <div class="container">
             <div class="row">
+                {% for pres in present %}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="inner-hmv">
                         <div class="icon-box-hmv"><i class="flaticon-achievement"></i></div>
                         <h3>Mission</h3>
                         <div class="tr-pa">M</div>
-                        {% if present %}
-                                <p>{{ present.mission | nl2br }}</p>
-                        {% endif %}
+                                <p>{{ pres.mission | nl2br }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">
@@ -104,9 +103,7 @@
                         <div class="icon-box-hmv"><i class="flaticon-eye"></i></div>
                         <h3>Vision</h3>
                         <div class="tr-pa">V</div>
-                        {% if present %}
-                            <p>{{ present.vision | nl2br }}</p>
-                        {% endif %}
+                            <p>{{ pres.vision | nl2br }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">
@@ -114,11 +111,10 @@
                         <div class="icon-box-hmv"><i class="flaticon-history"></i></div>
                         <h3>Histoire</h3>
                         <div class="tr-pa">H</div>
-                        {% if present %}
-                            <p>{{ present.histoire | nl2br }}</p>
-                        {% endif %}
+                            <p>{{ pres.histoire | nl2br }}</p>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>

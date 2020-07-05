@@ -39,7 +39,7 @@ class AboutController extends AbstractController
 
     public function index(PresentationRepository $repository, AlumniRepository $alumniRepository):Response
     {
-        $present = $repository->find(1);
+        $present = $repository->findLast();
         $alumnis = $alumniRepository->findLast();
 
         return $this->render('pages/about.html.twig',[
@@ -56,7 +56,7 @@ class AboutController extends AbstractController
 
     public function index2(MotDoyenRepository $repository):Response
     {
-        $mot = $repository->find(1);
+        $mot = $repository->findLast();
 
         return $this->render('pages/motDoyen.html.twig',[
             'mot' => $mot

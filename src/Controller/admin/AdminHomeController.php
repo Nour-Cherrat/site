@@ -38,12 +38,37 @@ class AdminHomeController extends  AbstractController
     }
 
     /**
-     * @Route("/adminAbout/presentation/{id}", name="admin.home.about")
+     * @Route("/adminAbout/presentation/create", name="admin.home.new")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function new(Request $request)
+    {
+        $presentation = new Presentation();
+        $form = $this->createForm(AboutType::class, $presentation);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $this->em->persist($presentation);
+            $this->em->flush();
+            $this->addFlash('success', 'Bien créé avec succès');
+            return $this->redirectToRoute('admin.home.index');
+        }
+
+        return $this->render('admin/home/new.html.twig', [
+            'presentation' => $presentation,
+            'form' => $form->createView()
+        ]);
+
+    }
+
+    /**
+     * @Route("/adminAbout/presentation/{id}", name="admin.home.edit", methods="GET|POST")
      * @param Presentation $presentation
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function about(Presentation $presentation, Request $request)
+    public function edit(Presentation $presentation, Request $request)
     {
         $form = $this->createForm(AboutType::class, $presentation);
         $form->handleRequest($request);
@@ -54,10 +79,28 @@ class AdminHomeController extends  AbstractController
             return $this->redirectToRoute('admin.home.index');
         }
 
-        return $this->render('admin/home/about.html.twig', [
+        return $this->render('admin/home/edit.html.twig', [
             'presentation' => $presentation,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/adminAbout/presentation/{id}", name="admin.home.delete", methods="DELETE")
+     * @param Presentation $presentation
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function delete(Presentation $presentation, Request $request)
+    {
+        if ($this->isCsrfTokenValid('delete'.$presentation->getId(), $request->get('_token')))
+        {
+            $this->em->remove($presentation);
+            $this->em->flush();
+            $this->addFlash('success', 'Bien supprimé avec succès');
+        }
+
+        return $this->redirectToRoute('admin.home.index');
     }
 
 }

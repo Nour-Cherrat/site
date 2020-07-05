@@ -35,7 +35,32 @@ class AdminMotController extends AbstractController
     }
 
     /**
-     * @Route("/adminAbout/MotD/{id}", name="admin.mot.edit")
+     * @Route("/adminAbout/MotD/create", name="admin.mot.new")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function new(Request $request)
+    {
+        $motDoyen = new MotDoyen();
+        $form = $this->createForm(MotType::class, $motDoyen);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $this->em->persist($motDoyen);
+            $this->em->flush();
+            $this->addFlash('success', 'Bien créé avec succès');
+            return $this->redirectToRoute('admin.mot.index');
+        }
+
+        return $this->render('admin/mot/new.html.twig', [
+            'motDoyen' => $motDoyen,
+            'form' => $form->createView()
+        ]);
+
+    }
+
+    /**
+     * @Route("/adminAbout/MotD/{id}", name="admin.mot.edit", methods="GET|POST")
      * @param MotDoyen $motDoyen
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -55,5 +80,23 @@ class AdminMotController extends AbstractController
             'motDoyen' => $motDoyen,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/adminAbout/MotD/{id}", name="admin.mot.delete", methods="DELETE")
+     * @param MotDoyen $motDoyen
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function delete(MotDoyen $motDoyen, Request $request)
+    {
+        if ($this->isCsrfTokenValid('delete'.$motDoyen->getId(), $request->get('_token')))
+        {
+            $this->em->remove($motDoyen);
+            $this->em->flush();
+            $this->addFlash('success', 'Bien supprimé avec succès');
+        }
+
+        return $this->redirectToRoute('admin.mot.index');
     }
 }

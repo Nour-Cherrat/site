@@ -80,25 +80,25 @@
             </div><!-- end title -->
 
             <div class="row align-items-center">
+                {% for m in mot %}
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="message-box">
-                        {% if mot %}
-                        <h4>{{ mot.nom }}</h4>
-                        <h2>"{{ mot.quote | nl2br }}"</h2>
-                        <p>"{{ mot.motD | nl2br }}"</p>
-                        {% endif %}
+                        <h4>{{ m.nom }}</h4>
+                        <h2>"{{ m.quote | nl2br }}"</h2>
+                        <p>"{{ m.motD | nl2br }}"</p>
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
 
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="post-media wow fadeIn">
-                        {% if mot.filename %}
+                        {% if m.filename %}
                             <img src="{{ vich_uploader_asset(mot, 'imageFile') | imagine_filter('profile') }}" alt="" class="img-fluid" >
                         {% else %}
                             <img src="{{ '/images/doyen/empty.jpg' | imagine_filter('profile') }}" alt="" class="img-fluid" >
                         {% endif %}
                     </div><!-- end media -->
                 </div><!-- end col -->
+                {% endfor %}
             </div>
 
         </div><!-- end container -->
