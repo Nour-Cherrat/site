@@ -38,7 +38,7 @@
                                 <a class="dropdown-item" href="{{ path('motDoyen') }}">Mot du doyen </a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item active dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formations </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <a class="dropdown-item" href="{{ path('filieres', {categorie: 1}) }}">Tronc Commun</a>
@@ -48,7 +48,7 @@
                                 <a class="dropdown-item" href="{{ path('filieres', {categorie: 5}) }}">Doctorat</a>
                             </div>
                         </li>
-                        <li class="nav-item active dropdown">
+                        <li class="nav-item  dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Annonces </a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <a class="dropdown-item" {% if current_menu is defined and current_menu == 'annonces' %} active {% endif %} href="{{ path('annonces', {categorie: 1}) }}">Administration </a>
@@ -100,7 +100,7 @@
                                 <h2><a href="{{ path('filiere.show', {id: filiere.id, slug: filiere.slug}) }}" title="">{{ filiere.nom }}</a></h2>
                             </div>
                             <div class="course-desc">
-                                <p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
+                                <p> </p>
                             </div>
                         </div>
                         <div class="course-meta-bot">

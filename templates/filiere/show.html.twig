@@ -124,10 +124,7 @@
                                         <tr>
                                             <th><h4>Modules :</h4></th>
                                             <td>
-                                                {% set tab = filiere.modules | split('-') %}
-                                                {% for t in tab %}
-                                                    <p>{{ t }}</p>
-                                                {% endfor %}
+                                                <p>{{ filiere.modules | nl2br }}</p>
                                             </td>
                                         </tr>
                                     </table>

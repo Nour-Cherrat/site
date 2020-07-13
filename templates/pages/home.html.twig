@@ -334,14 +334,7 @@
                 }
 
                 .bg-66 {
-                    background:
-                        {% for time in timeline %}
-                            {% if time.filename %}
-                                url({{ vich_uploader_asset(time, 'imageFile') }});
-                            {% else %}
-                                url('/images/annonces/empty.png');
-                            {% endif %}
-                        {% endfor %}
+
                     background-size:cover;
                 }
 
@@ -350,7 +343,13 @@
         <div id="thumbs" style="background-color: #ddd;">
             {% if timeline %}
                 {% for time in timeline %}
-                    <div class="history-block bg-66">
+                    <div class="history-block bg-66"
+                         style="background:
+                            {% if time.filename %}
+                                    url({{ vich_uploader_asset(time, 'imageFile') }});
+                            {% else %}
+                                    url('/images/annonces/empty.png');
+                            {% endif %};">
                         <div class="cover"></div>
                         <div class="year">
                             {% if time.dateDebut %}
@@ -384,7 +383,18 @@
             </div>
 
             <div class="message-box">
-                <h4 style="font-size: 25px;">Administration</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 style="font-size: 25px;">Administration</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <div class="blog-button" style="float: right;">
+                                <a class="hover-btn-new orange" href="{{ path('annonces', {categorie: 1}) }}"><span>Plus d'annonces<span></a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
             </div><!-- end messagebox -->
 
             <div class="row align-items-center">
@@ -418,7 +428,18 @@
             </div>
 
             <div class="message-box">
-                <h4 style="font-size: 25px;">Etudiant</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 style="font-size: 25px;">Etudiant</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <div class="blog-button" style="float: right;">
+                                <a class="hover-btn-new orange" href="{{ path('annonces', {categorie: 2}) }}"><span>Plus d'annonces<span></a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
             </div><!-- end messagebox -->
 
             <div class="row align-items-center">
@@ -451,7 +472,18 @@
             </div>
 
             <div class="message-box">
-                <h4 style="font-size: 25px;">Manifestation</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 style="font-size: 25px;">Manifestation</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <div class="blog-button" style="float: right;">
+                                <a class="hover-btn-new orange" href="{{ path('annonces', {categorie: 3}) }}"><span>Plus d'annonces<span></a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
             </div><!-- end messagebox -->
 
             <div class="row align-items-center">
@@ -484,7 +516,18 @@
             </div>
 
             <div class="message-box">
-                <h4 style="font-size: 25px;">Para-universitaire</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 style="font-size: 25px;">Para-universitaire</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <div class="blog-button" style="float: right;">
+                                <a class="hover-btn-new orange" href="{{ path('annonces', {categorie: 4}) }}"><span>Plus d'annonces<span></a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
             </div><!-- end messagebox -->
 
             <div class="row align-items-center">

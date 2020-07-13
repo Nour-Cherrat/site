@@ -44,7 +44,7 @@ class MotDoyen
     private $motD;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
 
